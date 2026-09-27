@@ -1,24 +1,27 @@
 # CyberDict
 
-CyberDict is a community cybersecurity dictionary and interactive knowledge explorer for offensive security, defensive security, purple teaming and AI security.
+CyberDict is a community cybersecurity dictionary and visual knowledge explorer for offensive security, defensive security, purple teaming, identity, vulnerability research and AI security.
 
-## v0.1
+The project is designed around a simple flow: discover a term, understand it quickly, then open the full term page for a deeper textual and visual explanation.
 
-This first release establishes the design system and static-first architecture.
+## Features
 
-### Included
+- Searchable cybersecurity dictionary
+- Category and knowledge-sector browsing
+- Individual term pages with simple and technical explanations
+- Offensive and defensive relevance
+- Full visual explainers with click-to-open lightbox viewing
+- Compact homepage previews so the landing page stays fast and uncluttered
+- MITRE ATT&CK, CWE and OWASP mappings where relevant
+- Related-term navigation
+- Responsive dark CyberDict interface
+- Static-first deployment for Cloudflare Workers
 
-- Green/black CyberDict interface inspired by the visual language of `about.asifnawazminhas.com`
-- Searchable seed dictionary
-- Knowledge-sector/category browsing
-- Individual term pages
-- Offensive and defensive context
-- MITRE ATT&CK / CWE / OWASP fields
-- Related-term relationships
-- Explore, Learn and About pages
-- Ask AI placeholder for a later release
-- Responsive layout
-- Cloudflare static-assets configuration
+## Visual Knowledge Library
+
+CyberDict uses dedicated visual explainers for core concepts. The current visual set includes CTF, C2, Red Team, Blue Team, Purple Team, SOC, SIEM, EDR, OSINT, Phishing, Privilege Escalation, Persistence, Lateral Movement, Pivoting, TTPs, IoC, MITRE ATT&CK, Vulnerability, Exploit, Incident Response, Threat Hunting, Zero Trust, Ransomware and MFA.
+
+Homepage cards use lightweight previews. The complete infographic is displayed only on the individual term page.
 
 ## Structure
 
@@ -26,29 +29,27 @@ This first release establishes the design system and static-first architecture.
 cyberdict/
 ├── public/
 │   ├── assets/
-│   │   ├── css/style.css
-│   │   └── js/app.js
+│   │   ├── css/
+│   │   ├── img/
+│   │   │   ├── previews/
+│   │   │   └── terms/
+│   │   └── js/
 │   ├── data/
 │   │   ├── categories.json
-│   │   ├── terms.json
-│   │   └── relations.json
-│   ├── term/
+│   │   ├── relations.json
+│   │   └── terms.json
+│   ├── about/
 │   ├── category/
 │   ├── explore/
 │   ├── learn/
-│   ├── about/
-│   ├── index.html
-│   ├── manifest.webmanifest
-│   ├── robots.txt
-│   └── sitemap.xml
+│   ├── term/
+│   └── index.html
 ├── LICENSE
 ├── README.md
 └── wrangler.toml
 ```
 
-## Local preview
-
-Any static HTTP server can serve `public/`, for example:
+## Local Preview
 
 ```bash
 python3 -m http.server 8000 -d public
@@ -56,13 +57,17 @@ python3 -m http.server 8000 -d public
 
 Then open `http://localhost:8000`.
 
-## Cloudflare
-
-The repository includes `wrangler.toml` for Cloudflare Workers static assets.
+## Cloudflare Deployment
 
 ```bash
-npx wrangler deploy --assets ./public/
+npx wrangler deploy
 ```
+
+The production site is available at `https://cyberdict.asifnawazminhas.com`.
+
+## Contributing
+
+Contributions that improve definitions, relationships, visual explanations or knowledge coverage are welcome. Keep explanations clear, technically accurate and useful to security learners and practitioners.
 
 ## Author
 
@@ -77,41 +82,3 @@ Asif Nawaz Minhas
 ## License
 
 MIT
-
-## v0.2
-
-- Rebuilt the homepage into a more premium cybersecurity knowledge platform.
-- Reduced repetitive neon-green outlines and introduced stronger content hierarchy.
-- Added layered charcoal cards, selective green glow, cyan/amber/violet mode accents and improved spacing.
-- Added a new hero visual and refined search experience.
-- Added 20 essential cybersecurity explanations:
-  CTF, C2, Red Team, Blue Team, Purple Team, SOC, SIEM, EDR, OSINT, Phishing,
-  Privilege Escalation, Persistence, Lateral Movement, Pivoting, TTPs, IoC,
-  MITRE ATT&CK, Vulnerability, Exploit and Incident Response.
-- Added a dedicated visual SVG for every one of those 20 terms.
-- Added term-page visual artwork.
-- Added a 20-term visual explainer section on the homepage.
-
-
-## v0.5 update
-
-- Added unique visual explainer images for the first 20 essential cybersecurity terms.
-- Updated the site to use the richer PNG visual cards on homepage and term pages for those concepts.
-
-
-## v0.6
-
-- Replaced the first 10 essential-term thumbnails with the complete, full-resolution unique visual explainers.
-- Removed forced 16:9 cropping from term pages and homepage cards.
-- Visual explainers now use their natural portrait aspect ratio and display in full.
-- First batch: CTF, C2, Red Team, Blue Team, Purple Team, Incident Response, Vulnerability, Exploit, MITRE ATT&CK and Phishing.
-
-
-## v0.7
-
-- Reworked the homepage as a discovery surface instead of an infographic gallery.
-- Added lightweight 16:9 visual previews for the 20 essential terms.
-- Full visual explainers now remain on the individual term pages.
-- Added click-to-open full-screen lightbox viewing for term infographics.
-- Tightened Featured Knowledge into a balanced text + visual preview layout.
-- Reduced homepage visual density while preserving the full learning content one click deeper.

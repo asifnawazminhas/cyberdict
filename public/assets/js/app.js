@@ -8,7 +8,7 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 function diffClass(d){return d==='Beginner'?'green':d==='Advanced'?'red':'yellow'}
 function termUrl(t){return `/term/?id=${encodeURIComponent(t.id)}`}
 function categoryUrl(c){return `/category/?id=${encodeURIComponent(c.id)}`}
-const RASTER_TERM_IDS=new Set(['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response']);
+const RASTER_TERM_IDS=new Set(['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa']);
 function visualUrl(t){const id=encodeURIComponent(t.id);return `/assets/img/terms/${id}.${RASTER_TERM_IDS.has(t.id)?'png':'svg'}` }
 function previewUrl(t){const id=encodeURIComponent(t.id);return RASTER_TERM_IDS.has(t.id)?`/assets/img/previews/${id}.jpg`:visualUrl(t)}
 function doSearch(inputId='heroSearch', resultsId='searchResults'){
@@ -22,7 +22,7 @@ function doSearch(inputId='heroSearch', resultsId='searchResults'){
 function renderHome(){
   const cats=document.getElementById('categories');
   if(cats) cats.innerHTML=CATEGORIES.slice(0,12).map(c=>`<a class="cat" href="${categoryUrl(c)}"><div class="ic">${c.icon}</div><div><b>${esc(c.name)}</b><span>${c.count} concepts</span></div></a>`).join('');
-  const essentialIds=['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response'];
+  const essentialIds=['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa'];
   const essentials=essentialIds.map(id=>TERMS.find(t=>t.id===id)).filter(Boolean);
   const featured=document.getElementById('featuredPrimary');
   if(featured && essentials[0]){

@@ -941,5 +941,121 @@
       "siem",
       "edr"
     ]
+  },
+  {
+    "id": "threat-hunting",
+    "term": "Threat Hunting",
+    "full": "Threat Hunting",
+    "categoryId": "blue-teaming",
+    "category": "Blue Teaming",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A proactive process for searching systems and data for hidden adversary activity that automated alerts may miss.",
+    "simpleExplanation": "Threat hunting means actively looking for signs of malicious behaviour instead of waiting for an alert. Hunters form a hypothesis, search relevant telemetry, follow evidence and determine whether suspicious activity is present.",
+    "technicalExplanation": "Threat hunting combines hypotheses, threat intelligence and telemetry from sources such as SIEM, EDR, endpoint logs and network traffic. Findings are validated, scoped and then converted into detections, response actions or further investigation.",
+    "offensiveRelevance": "Understanding threat hunting helps offensive teams anticipate which behaviours defenders can discover even when no alert fires automatically.",
+    "defensiveRelevance": "Threat hunting helps defenders uncover stealthy activity, validate assumptions, improve detections and reduce blind spots.",
+    "tags": [
+      "Threat Hunting",
+      "Detection",
+      "Telemetry",
+      "Blue Teaming"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "siem",
+      "edr",
+      "ioc",
+      "mitre-attck",
+      "incident-response"
+    ]
+  },
+  {
+    "id": "zero-trust",
+    "term": "Zero Trust",
+    "full": "Zero Trust Security",
+    "categoryId": "authentication",
+    "category": "Authentication",
+    "difficulty": "Beginner",
+    "shortDefinition": "A security model that assumes no implicit trust and continuously verifies users, devices and access requests.",
+    "simpleExplanation": "Zero Trust follows the idea \u201cnever trust, always verify.\u201d Access decisions consider identity, device health, context, least privilege and segmentation rather than trusting users simply because they are inside a network.",
+    "technicalExplanation": "Zero Trust architectures continuously evaluate identity, device posture, policy, resource sensitivity and risk. Common principles include strong authentication, least privilege, micro-segmentation, continuous monitoring and adaptive access controls.",
+    "offensiveRelevance": "For security testers, Zero Trust changes attack paths by reducing implicit network trust and requiring repeated identity and device validation.",
+    "defensiveRelevance": "Zero Trust can reduce lateral movement, excessive privilege and the impact of compromised accounts or devices.",
+    "tags": [
+      "Zero Trust",
+      "Identity",
+      "Least Privilege",
+      "Segmentation"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "mfa",
+      "lateral-movement",
+      "edr",
+      "authentication"
+    ]
+  },
+  {
+    "id": "ransomware",
+    "term": "Ransomware",
+    "full": "Ransomware",
+    "categoryId": "blue-teaming",
+    "category": "Blue Teaming",
+    "difficulty": "Beginner",
+    "shortDefinition": "Malicious software that encrypts data or disrupts systems and demands payment for recovery.",
+    "simpleExplanation": "Ransomware is malware designed to make files or systems unavailable, often by encrypting them, and then demand payment. Modern incidents may also involve data theft and extortion.",
+    "technicalExplanation": "A ransomware incident can involve initial access, privilege escalation, credential theft, lateral movement, defence evasion, data exfiltration and mass encryption. Effective response focuses on containment, evidence preservation, recovery and closing the original access path.",
+    "offensiveRelevance": "Adversary simulations may safely emulate ransomware behaviours without destructive encryption to test segmentation, detection and response readiness.",
+    "defensiveRelevance": "Defenders reduce ransomware risk through strong identity controls, segmentation, endpoint protection, tested backups, rapid containment and incident-response preparation.",
+    "tags": [
+      "Ransomware",
+      "Malware",
+      "Incident Response",
+      "Recovery"
+    ],
+    "mitre": [
+      "T1486"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "incident-response",
+      "edr",
+      "lateral-movement",
+      "phishing",
+      "persistence"
+    ]
+  },
+  {
+    "id": "mfa",
+    "term": "MFA",
+    "full": "Multi-Factor Authentication",
+    "categoryId": "authentication",
+    "category": "Authentication",
+    "difficulty": "Beginner",
+    "shortDefinition": "An authentication approach that requires two or more factors to verify identity.",
+    "simpleExplanation": "MFA requires more than one kind of proof when signing in, such as a password plus an authenticator app, hardware security key or biometric factor.",
+    "technicalExplanation": "Authentication factors are commonly grouped into something you know, something you have and something you are. MFA reduces reliance on a single credential and can be combined with risk-based or step-up verification.",
+    "offensiveRelevance": "During authorised assessments, MFA is evaluated for bypass opportunities, weak recovery paths, session handling and resistance to phishing or token theft.",
+    "defensiveRelevance": "MFA significantly reduces account takeover risk when passwords are stolen, especially when phishing-resistant factors are used.",
+    "tags": [
+      "MFA",
+      "Authentication",
+      "Identity",
+      "Account Security"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "oauth-2",
+      "openid-connect",
+      "zero-trust",
+      "phishing"
+    ]
   }
 ]
