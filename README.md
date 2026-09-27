@@ -91,3 +91,12 @@ MIT
 - Added a dedicated visual SVG for every one of those 20 terms.
 - Added term-page visual artwork.
 - Added a 20-term visual explainer section on the homepage.
+
+## v0.3
+
+- Removed the unnecessary homepage screenshot/second image.
+- Added a cleaner single-column hero and compact Purple Team concept spotlight.
+- Rebuilt all 20 essential term visuals as meaning-driven diagrams with labelled flows.
+- Purple Team now visibly shows Red Team → shared feedback → Blue Team.
+- Enlarged visual explainers on term pages.
+- Kept the black/green identity while reducing decorative-only graphics.
