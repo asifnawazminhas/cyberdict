@@ -93,7 +93,7 @@ MIT
 - Added a 20-term visual explainer section on the homepage.
 
 
-## v0.4 update
+## v0.5 update
 
 - Added unique visual explainer images for the first 20 essential cybersecurity terms.
 - Updated the site to use the richer PNG visual cards on homepage and term pages for those concepts.
