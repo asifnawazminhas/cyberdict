@@ -105,3 +105,13 @@ MIT
 - Removed forced 16:9 cropping from term pages and homepage cards.
 - Visual explainers now use their natural portrait aspect ratio and display in full.
 - First batch: CTF, C2, Red Team, Blue Team, Purple Team, Incident Response, Vulnerability, Exploit, MITRE ATT&CK and Phishing.
+
+
+## v0.7
+
+- Reworked the homepage as a discovery surface instead of an infographic gallery.
+- Added lightweight 16:9 visual previews for the 20 essential terms.
+- Full visual explainers now remain on the individual term pages.
+- Added click-to-open full-screen lightbox viewing for term infographics.
+- Tightened Featured Knowledge into a balanced text + visual preview layout.
+- Reduced homepage visual density while preserving the full learning content one click deeper.
