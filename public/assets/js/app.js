@@ -8,7 +8,8 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 function diffClass(d){return d==='Beginner'?'green':d==='Advanced'?'red':'yellow'}
 function termUrl(t){return `/term/?id=${encodeURIComponent(t.id)}`}
 function categoryUrl(c){return `/category/?id=${encodeURIComponent(c.id)}`}
-function visualUrl(t){return `/assets/img/terms/${encodeURIComponent(t.id)}.svg`}
+const RASTER_TERM_IDS=new Set(['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response']);
+function visualUrl(t){const id=encodeURIComponent(t.id);return `/assets/img/terms/${id}.${RASTER_TERM_IDS.has(t.id)?'png':'svg'}` }
 function doSearch(inputId='heroSearch', resultsId='searchResults'){
   const q=(document.getElementById(inputId)?.value||'').trim().toLowerCase();
   const box=document.getElementById(resultsId); if(!box)return;
