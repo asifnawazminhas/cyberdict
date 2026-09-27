@@ -1,0 +1,516 @@
+[
+  {
+    "id": "kerberoasting",
+    "term": "Kerberoasting",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A technique that targets Kerberos service tickets associated with service accounts so password material can be attacked offline.",
+    "simpleExplanation": "An attacker requests a Kerberos service ticket for an account that runs a service. The ticket can then be analysed offline in an attempt to recover the service account password.",
+    "technicalExplanation": "Kerberoasting abuses the fact that domain users can request service tickets for SPN-backed service accounts. The encrypted portion of the ticket is derived from the service account secret, enabling offline password guessing without repeatedly contacting the domain controller.",
+    "offensiveRelevance": "Used during Active Directory assessments to identify weak service-account passwords and paths to privilege escalation.",
+    "defensiveRelevance": "Use strong managed service-account passwords, prefer gMSA where possible, monitor unusual service-ticket activity and reduce unnecessary service-account privilege.",
+    "tags": [
+      "Kerberos",
+      "Service Accounts",
+      "Credential Access"
+    ],
+    "mitre": [
+      "T1558.003"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "kerberos",
+      "golden-ticket",
+      "dcsync",
+      "pass-the-hash"
+    ]
+  },
+  {
+    "id": "ssrf",
+    "term": "SSRF",
+    "category": "Web Security",
+    "categoryId": "web-security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "Server-Side Request Forgery causes a server to make unintended requests to internal or external resources.",
+    "simpleExplanation": "Instead of the attacker directly contacting a target, a vulnerable application is tricked into making the request for them.",
+    "technicalExplanation": "SSRF commonly appears in URL fetchers, webhook handlers, import features and proxy-style functionality. It can expose internal services, cloud metadata endpoints or trust boundaries unreachable from the internet.",
+    "offensiveRelevance": "Useful for validating server-side trust boundaries and internal network exposure during authorised web assessments.",
+    "defensiveRelevance": "Apply strict allowlists, URL parsing controls, outbound network restrictions and metadata-service protections.",
+    "tags": [
+      "Web Security",
+      "Server-Side",
+      "Cloud"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-918"
+    ],
+    "owasp": [
+      "A10:2021"
+    ],
+    "relatedTerms": [
+      "xxe",
+      "open-redirect",
+      "cloud-metadata"
+    ]
+  },
+  {
+    "id": "pass-the-hash",
+    "term": "Pass-the-Hash",
+    "category": "Windows",
+    "categoryId": "windows",
+    "difficulty": "Intermediate",
+    "shortDefinition": "An authentication technique that uses an NTLM password hash instead of the plaintext password.",
+    "simpleExplanation": "If an attacker obtains a reusable NTLM hash, some Windows authentication flows may accept it without requiring the original password.",
+    "technicalExplanation": "Pass-the-Hash leverages NTLM authentication material as a reusable credential for compatible services and protocols. Its practical impact depends on network reachability, account privileges and defensive controls.",
+    "offensiveRelevance": "Used to validate credential reuse and lateral-movement risk in Windows environments.",
+    "defensiveRelevance": "Reduce NTLM usage, segment administration, use privileged access controls and monitor unusual remote-authentication patterns.",
+    "tags": [
+      "NTLM",
+      "Windows",
+      "Credential Access"
+    ],
+    "mitre": [
+      "T1550.002"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "ntlm",
+      "kerberoasting",
+      "lateral-movement"
+    ]
+  },
+  {
+    "id": "oauth-2",
+    "term": "OAuth 2.0",
+    "category": "Authentication",
+    "categoryId": "authentication",
+    "difficulty": "Beginner",
+    "shortDefinition": "An authorisation framework that lets applications obtain delegated access to resources without sharing a user's password.",
+    "simpleExplanation": "OAuth lets one service grant another service limited access on behalf of a user.",
+    "technicalExplanation": "OAuth 2.0 defines roles and flows for delegated authorisation using access tokens. Security depends heavily on correct redirect URI validation, state handling, token storage, client configuration and scope design.",
+    "offensiveRelevance": "Reviewed during application assessments for redirect, token, scope and client-security weaknesses.",
+    "defensiveRelevance": "Use exact redirect URI validation, PKCE where appropriate, least-privilege scopes and secure token handling.",
+    "tags": [
+      "OAuth",
+      "Tokens",
+      "Authorisation"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "openid-connect",
+      "jwt",
+      "pkce"
+    ]
+  },
+  {
+    "id": "edr",
+    "term": "EDR",
+    "category": "Blue Teaming",
+    "categoryId": "blue-teaming",
+    "difficulty": "Beginner",
+    "shortDefinition": "Endpoint Detection and Response monitors endpoint activity to detect, investigate and respond to suspicious behaviour.",
+    "simpleExplanation": "EDR gives defenders visibility into what is happening on laptops and servers and helps them respond to suspicious activity.",
+    "technicalExplanation": "EDR platforms collect endpoint telemetry such as process, file, network and identity events. They correlate behaviour, generate detections and may support containment and response actions.",
+    "offensiveRelevance": "Security assessments can validate whether realistic attack behaviours are detected and whether controls are effective.",
+    "defensiveRelevance": "Tune detections, preserve telemetry, validate response workflows and regularly test detection coverage.",
+    "tags": [
+      "Detection",
+      "Endpoint",
+      "Telemetry"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "xdr",
+      "siem",
+      "purple-teaming"
+    ]
+  },
+  {
+    "id": "mitre-attck",
+    "term": "MITRE ATT&CK",
+    "category": "Blue Teaming",
+    "categoryId": "blue-teaming",
+    "difficulty": "Beginner",
+    "shortDefinition": "A knowledge base of adversary tactics and techniques based on real-world observations.",
+    "simpleExplanation": "ATT&CK provides a shared language for describing how attackers behave.",
+    "technicalExplanation": "MITRE ATT&CK organises adversary behaviour into tactics, techniques and sub-techniques that can be used for threat modelling, detection engineering, red teaming and purple teaming.",
+    "offensiveRelevance": "Used to map adversary behaviours and design realistic simulations.",
+    "defensiveRelevance": "Used to structure detections, gap analysis and control validation.",
+    "tags": [
+      "Framework",
+      "Detection",
+      "Threat Modelling"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "purple-teaming",
+      "detection-engineering"
+    ]
+  },
+  {
+    "id": "cve",
+    "term": "CVE",
+    "category": "Vulnerability Research",
+    "categoryId": "web-security",
+    "difficulty": "Beginner",
+    "shortDefinition": "Common Vulnerabilities and Exposures is a standardised identifier system for publicly disclosed security vulnerabilities.",
+    "simpleExplanation": "A CVE number gives a public vulnerability a common name that vendors, researchers and defenders can reference.",
+    "technicalExplanation": "CVE records identify publicly disclosed vulnerabilities and are often enriched by vendor advisories, NVD entries and scoring systems such as CVSS.",
+    "offensiveRelevance": "Helps testers correlate known vulnerabilities with affected products and versions.",
+    "defensiveRelevance": "Supports vulnerability management, patch prioritisation and asset exposure tracking.",
+    "tags": [
+      "Vulnerability Research",
+      "Disclosure",
+      "Identifiers"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "cvss",
+      "cwe",
+      "responsible-disclosure"
+    ]
+  },
+  {
+    "id": "dll-hijacking",
+    "term": "DLL Hijacking",
+    "category": "Windows",
+    "categoryId": "windows",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A technique that abuses Windows DLL search behaviour so a malicious library is loaded instead of the intended one.",
+    "simpleExplanation": "If an application looks for a DLL in an unsafe location first, an attacker may be able to place a different DLL there.",
+    "technicalExplanation": "DLL hijacking depends on search order, writable paths, missing libraries, application loading behaviour and trust controls such as WDAC or AppLocker.",
+    "offensiveRelevance": "Used to validate unsafe DLL loading and privilege boundaries in Windows assessments.",
+    "defensiveRelevance": "Harden search paths, remove writable trusted paths and enforce application control.",
+    "tags": [
+      "Windows",
+      "Persistence",
+      "Execution"
+    ],
+    "mitre": [
+      "T1574.001"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "wdac",
+      "applocker",
+      "lolbins"
+    ]
+  },
+  {
+    "id": "privilege-escalation",
+    "term": "Privilege Escalation",
+    "category": "Red Teaming",
+    "categoryId": "red-teaming",
+    "difficulty": "Intermediate",
+    "shortDefinition": "The process of obtaining higher privileges than those initially available.",
+    "simpleExplanation": "An attacker starts with limited access and finds a way to gain administrator, root or equivalent privileges.",
+    "technicalExplanation": "Privilege escalation can result from misconfigurations, vulnerable software, credential exposure, token abuse, weak service permissions and trust relationships.",
+    "offensiveRelevance": "Core phase of penetration testing and adversary simulation.",
+    "defensiveRelevance": "Harden permissions, patch systems, reduce local admin rights and monitor sensitive privilege changes.",
+    "tags": [
+      "Privilege",
+      "Post-Exploitation",
+      "Hardening"
+    ],
+    "mitre": [
+      "TA0004"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "lateral-movement",
+      "persistence"
+    ]
+  },
+  {
+    "id": "prompt-injection",
+    "term": "Prompt Injection",
+    "category": "AI Security",
+    "categoryId": "ai-security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A class of attacks that manipulates an AI system's instructions through attacker-controlled input.",
+    "simpleExplanation": "A user or external source gives an AI system instructions that conflict with the developer's intended behaviour.",
+    "technicalExplanation": "Prompt injection can be direct or indirect and becomes especially relevant when LLMs can access tools, retrieve external content, call APIs or act autonomously.",
+    "offensiveRelevance": "Used to test instruction hierarchy, data boundaries, tool access and agentic behaviour.",
+    "defensiveRelevance": "Apply least privilege, isolate tools, validate outputs, constrain retrieval and test against adversarial inputs.",
+    "tags": [
+      "LLM",
+      "AI Security",
+      "Agents"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [
+      "OWASP LLM01"
+    ],
+    "relatedTerms": [
+      "jailbreaking",
+      "rag",
+      "mcp"
+    ]
+  },
+  {
+    "id": "openid-connect",
+    "term": "OpenID Connect",
+    "category": "Authentication",
+    "categoryId": "authentication",
+    "difficulty": "Intermediate",
+    "shortDefinition": "An identity layer built on top of OAuth 2.0 that provides authentication and identity claims.",
+    "simpleExplanation": "OIDC lets an application confirm who a user is while OAuth handles delegated access.",
+    "technicalExplanation": "OIDC introduces ID tokens, discovery, userinfo endpoints, claims and defined authentication flows on top of OAuth 2.0.",
+    "offensiveRelevance": "Assessed for issuer validation, redirect handling, token validation and client misconfiguration.",
+    "defensiveRelevance": "Validate signatures, issuer, audience, nonce and redirect URI behaviour.",
+    "tags": [
+      "OIDC",
+      "OAuth",
+      "Identity"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "oauth-2",
+      "jwt",
+      "pkce"
+    ]
+  },
+  {
+    "id": "jwt",
+    "term": "JWT",
+    "category": "Authentication",
+    "categoryId": "authentication",
+    "difficulty": "Beginner",
+    "shortDefinition": "JSON Web Token is a compact format for transmitting signed or encrypted claims between parties.",
+    "simpleExplanation": "A JWT is a structured token commonly used to carry identity or authorisation information.",
+    "technicalExplanation": "JWT security depends on correct algorithm selection, signature validation, key management, claim validation and token lifecycle handling.",
+    "offensiveRelevance": "Reviewed for weak signature validation, claim manipulation and key confusion issues.",
+    "defensiveRelevance": "Pin algorithms, validate claims and protect signing keys.",
+    "tags": [
+      "Tokens",
+      "Identity",
+      "Authentication"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "oauth-2",
+      "openid-connect"
+    ]
+  },
+  {
+    "id": "xss",
+    "term": "Cross-Site Scripting (XSS)",
+    "category": "Web Security",
+    "categoryId": "web-security",
+    "difficulty": "Beginner",
+    "shortDefinition": "A web vulnerability that allows attacker-controlled script to execute in another user's browser.",
+    "simpleExplanation": "An application places unsafe user input into a web page and the browser treats it as executable code.",
+    "technicalExplanation": "XSS appears as reflected, stored or DOM-based behaviour depending on the injection and execution context.",
+    "offensiveRelevance": "Used to test output encoding, sanitisation and client-side trust boundaries.",
+    "defensiveRelevance": "Apply contextual encoding, safe DOM APIs, sanitisation and CSP as defence in depth.",
+    "tags": [
+      "Browser",
+      "Injection",
+      "Web Security"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-79"
+    ],
+    "owasp": [
+      "A03:2021"
+    ],
+    "relatedTerms": [
+      "csrf",
+      "html-injection"
+    ]
+  },
+  {
+    "id": "dcsync",
+    "term": "DCSync",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Advanced",
+    "shortDefinition": "An Active Directory technique that abuses directory replication rights to request credential data from a domain controller.",
+    "simpleExplanation": "An account with powerful replication permissions can ask a domain controller for password-related data as if it were another domain controller.",
+    "technicalExplanation": "DCSync abuses directory replication APIs and requires specific replication rights. It is powerful because it can expose credential material without reading the domain-controller database directly.",
+    "offensiveRelevance": "Used to validate highly privileged directory permissions and compromise paths.",
+    "defensiveRelevance": "Audit replication rights, minimise privileged groups and monitor unusual replication requests.",
+    "tags": [
+      "Active Directory",
+      "Replication",
+      "Credential Access"
+    ],
+    "mitre": [
+      "T1003.006"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "kerberoasting",
+      "golden-ticket"
+    ]
+  },
+  {
+    "id": "golden-ticket",
+    "term": "Golden Ticket",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Advanced",
+    "shortDefinition": "A forged Kerberos Ticket Granting Ticket created using the KRBTGT account secret.",
+    "simpleExplanation": "If an attacker has the KRBTGT secret, they can create Kerberos tickets that appear to come from the domain.",
+    "technicalExplanation": "Golden Ticket attacks rely on possession of the KRBTGT key material and permit highly privileged forged TGTs within the affected domain.",
+    "offensiveRelevance": "Used to demonstrate impact after deep Active Directory compromise.",
+    "defensiveRelevance": "Protect domain-controller secrets, rotate KRBTGT after compromise and monitor anomalous Kerberos behaviour.",
+    "tags": [
+      "Kerberos",
+      "Persistence",
+      "Active Directory"
+    ],
+    "mitre": [
+      "T1558.001"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "dcsync",
+      "kerberoasting"
+    ]
+  },
+  {
+    "id": "wdac",
+    "term": "WDAC",
+    "category": "Windows",
+    "categoryId": "windows",
+    "difficulty": "Intermediate",
+    "shortDefinition": "Windows Defender Application Control is a Windows application-control technology used to restrict which code can run.",
+    "simpleExplanation": "WDAC lets organisations define which applications, scripts and code are trusted to execute.",
+    "technicalExplanation": "WDAC policies can enforce signer, hash, path and reputation-based trust decisions and can be combined with other Windows security controls.",
+    "offensiveRelevance": "Assessment focuses on whether execution controls match intended security policy and whether trusted paths introduce gaps.",
+    "defensiveRelevance": "Use strong allow rules, minimise writable trusted paths and validate effective policy.",
+    "tags": [
+      "Windows",
+      "Application Control",
+      "Hardening"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "applocker",
+      "dll-hijacking"
+    ]
+  },
+  {
+    "id": "purple-teaming",
+    "term": "Purple Teaming",
+    "category": "Purple Teaming",
+    "categoryId": "purple-teaming",
+    "difficulty": "Beginner",
+    "shortDefinition": "A structured collaborative approach where offensive and defensive security teams work together to improve resilience.",
+    "simpleExplanation": "Red and blue teams share what they are doing and what they observe so both sides learn and improve faster.",
+    "technicalExplanation": "Purple teaming can combine adversary simulation, telemetry review, detection validation, feedback cycles and knowledge transfer.",
+    "offensiveRelevance": "Provides rapid feedback on whether attack behaviours are realistic and observable.",
+    "defensiveRelevance": "Improves detection engineering, response readiness and understanding of adversary behaviour.",
+    "tags": [
+      "Collaboration",
+      "Detection Validation",
+      "Learning"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "mitre-attck",
+      "edr"
+    ]
+  },
+  {
+    "id": "mcp",
+    "term": "Model Context Protocol (MCP)",
+    "category": "AI Security",
+    "categoryId": "ai-security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A protocol for connecting AI applications to tools, data sources and external capabilities through a standard interface.",
+    "simpleExplanation": "MCP gives AI systems a common way to interact with tools and data.",
+    "technicalExplanation": "MCP introduces new trust boundaries around tool permissions, server authenticity, data exposure and action approval.",
+    "offensiveRelevance": "Security testing can evaluate tool abuse, over-privileged servers, prompt-driven action chains and data exposure.",
+    "defensiveRelevance": "Use least privilege, explicit approvals, server trust controls and action auditing.",
+    "tags": [
+      "AI Security",
+      "Agents",
+      "Tools"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "prompt-injection",
+      "rag"
+    ]
+  },
+  {
+    "id": "rag",
+    "term": "Retrieval-Augmented Generation (RAG)",
+    "category": "AI Security",
+    "categoryId": "ai-security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "An AI architecture that retrieves external information and supplies it to a language model as context.",
+    "simpleExplanation": "RAG lets an AI model look up relevant information before answering.",
+    "technicalExplanation": "RAG systems combine retrieval, ranking and generation. Security concerns include poisoned content, data leakage, access-control bypass and indirect prompt injection.",
+    "offensiveRelevance": "Testers assess trust in retrieved content and separation between users, sources and actions.",
+    "defensiveRelevance": "Enforce source permissions, provenance, retrieval filtering and prompt-injection resistance.",
+    "tags": [
+      "AI Security",
+      "Retrieval",
+      "LLM"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "prompt-injection",
+      "mcp"
+    ]
+  },
+  {
+    "id": "lateral-movement",
+    "term": "Lateral Movement",
+    "category": "Red Teaming",
+    "categoryId": "red-teaming",
+    "difficulty": "Intermediate",
+    "shortDefinition": "Techniques used to move from one compromised system or identity to another within an environment.",
+    "simpleExplanation": "After gaining a foothold, an attacker tries to reach additional systems or accounts.",
+    "technicalExplanation": "Lateral movement may use remote services, credential material, trust relationships and administrative tooling.",
+    "offensiveRelevance": "Used to validate segmentation, credential boundaries and administrative trust.",
+    "defensiveRelevance": "Segment networks, reduce credential exposure and monitor remote administration.",
+    "tags": [
+      "Red Teaming",
+      "Movement",
+      "Credentials"
+    ],
+    "mitre": [
+      "TA0008"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "pass-the-hash",
+      "privilege-escalation"
+    ]
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "source": "kerberoasting",
+    "target": "kerberos"
+  },
+  {
+    "source": "kerberoasting",
+    "target": "golden-ticket"
+  },
+  {
+    "source": "kerberoasting",
+    "target": "dcsync"
+  },
+  {
+    "source": "kerberoasting",
+    "target": "pass-the-hash"
+  },
+  {
+    "source": "ssrf",
+    "target": "xxe"
+  },
+  {
+    "source": "ssrf",
+    "target": "open-redirect"
+  },
+  {
+    "source": "ssrf",
+    "target": "cloud-metadata"
+  },
+  {
+    "source": "pass-the-hash",
+    "target": "ntlm"
+  },
+  {
+    "source": "pass-the-hash",
+    "target": "kerberoasting"
+  },
+  {
+    "source": "pass-the-hash",
+    "target": "lateral-movement"
+  },
+  {
+    "source": "oauth-2",
+    "target": "openid-connect"
+  },
+  {
+    "source": "oauth-2",
+    "target": "jwt"
+  },
+  {
+    "source": "oauth-2",
+    "target": "pkce"
+  },
+  {
+    "source": "edr",
+    "target": "xdr"
+  },
+  {
+    "source": "edr",
+    "target": "siem"
+  },
+  {
+    "source": "edr",
+    "target": "purple-teaming"
+  },
+  {
+    "source": "mitre-attck",
+    "target": "purple-teaming"
+  },
+  {
+    "source": "mitre-attck",
+    "target": "detection-engineering"
+  },
+  {
+    "source": "cve",
+    "target": "cvss"
+  },
+  {
+    "source": "cve",
+    "target": "cwe"
+  },
+  {
+    "source": "cve",
+    "target": "responsible-disclosure"
+  },
+  {
+    "source": "dll-hijacking",
+    "target": "wdac"
+  },
+  {
+    "source": "dll-hijacking",
+    "target": "applocker"
+  },
+  {
+    "source": "dll-hijacking",
+    "target": "lolbins"
+  },
+  {
+    "source": "privilege-escalation",
+    "target": "lateral-movement"
+  },
+  {
+    "source": "privilege-escalation",
+    "target": "persistence"
+  },
+  {
+    "source": "prompt-injection",
+    "target": "jailbreaking"
+  },
+  {
+    "source": "prompt-injection",
+    "target": "rag"
+  },
+  {
+    "source": "prompt-injection",
+    "target": "mcp"
+  },
+  {
+    "source": "openid-connect",
+    "target": "oauth-2"
+  },
+  {
+    "source": "openid-connect",
+    "target": "jwt"
+  },
+  {
+    "source": "openid-connect",
+    "target": "pkce"
+  },
+  {
+    "source": "jwt",
+    "target": "oauth-2"
+  },
+  {
+    "source": "jwt",
+    "target": "openid-connect"
+  },
+  {
+    "source": "xss",
+    "target": "csrf"
+  },
+  {
+    "source": "xss",
+    "target": "html-injection"
+  },
+  {
+    "source": "dcsync",
+    "target": "kerberoasting"
+  },
+  {
+    "source": "dcsync",
+    "target": "golden-ticket"
+  },
+  {
+    "source": "golden-ticket",
+    "target": "dcsync"
+  },
+  {
+    "source": "golden-ticket",
+    "target": "kerberoasting"
+  },
+  {
+    "source": "wdac",
+    "target": "applocker"
+  },
+  {
+    "source": "wdac",
+    "target": "dll-hijacking"
+  },
+  {
+    "source": "purple-teaming",
+    "target": "mitre-attck"
+  },
+  {
+    "source": "purple-teaming",
+    "target": "edr"
+  },
+  {
+    "source": "mcp",
+    "target": "prompt-injection"
+  },
+  {
+    "source": "mcp",
+    "target": "rag"
+  },
+  {
+    "source": "rag",
+    "target": "prompt-injection"
+  },
+  {
+    "source": "rag",
+    "target": "mcp"
+  },
+  {
+    "source": "lateral-movement",
+    "target": "pass-the-hash"
+  },
+  {
+    "source": "lateral-movement",
+    "target": "privilege-escalation"
+  }
+]

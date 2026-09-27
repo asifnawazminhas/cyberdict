@@ -1,0 +1,9 @@
+{
+  "name": "CyberDict",
+  "short_name": "CyberDict",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050a07",
+  "theme_color": "#00ff66",
+  "description": "Cybersecurity dictionary and knowledge explorer"
+}

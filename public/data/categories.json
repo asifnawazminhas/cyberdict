@@ -1,0 +1,86 @@
+[
+  {
+    "id": "web-security",
+    "name": "Web Security",
+    "icon": "\u25ce",
+    "count": 48,
+    "description": "Web application vulnerabilities, browser security, APIs and modern application attack surfaces."
+  },
+  {
+    "id": "active-directory",
+    "name": "Active Directory",
+    "icon": "\u2318",
+    "count": 42,
+    "description": "Kerberos, NTLM, delegation, AD CS, trust relationships and enterprise identity attacks."
+  },
+  {
+    "id": "windows",
+    "name": "Windows",
+    "icon": "\u229e",
+    "count": 36,
+    "description": "Windows internals, security controls, credentials, privilege escalation and post-exploitation."
+  },
+  {
+    "id": "linux",
+    "name": "Linux",
+    "icon": "\u25d2",
+    "count": 28,
+    "description": "Linux permissions, services, privilege escalation, persistence and system security concepts."
+  },
+  {
+    "id": "networking",
+    "name": "Networking",
+    "icon": "\u2301",
+    "count": 26,
+    "description": "Protocols, routing, segmentation, traffic analysis and network security fundamentals."
+  },
+  {
+    "id": "authentication",
+    "name": "Authentication",
+    "icon": "\u25c9",
+    "count": 34,
+    "description": "Identity, sessions, OAuth, OIDC, MFA, tokens and authentication security."
+  },
+  {
+    "id": "cryptography",
+    "name": "Cryptography",
+    "icon": "\u25a3",
+    "count": 22,
+    "description": "Encryption, hashing, signatures, PKI, certificates and cryptographic security."
+  },
+  {
+    "id": "red-teaming",
+    "name": "Red Teaming",
+    "icon": "\u2620",
+    "count": 37,
+    "description": "Adversary simulation, C2, persistence, lateral movement, OPSEC and attack-path validation."
+  },
+  {
+    "id": "blue-teaming",
+    "name": "Blue Teaming",
+    "icon": "\u2b21",
+    "count": 32,
+    "description": "Detection, response, telemetry, endpoint controls, logging and security operations."
+  },
+  {
+    "id": "purple-teaming",
+    "name": "Purple Teaming",
+    "icon": "\u25cc",
+    "count": 25,
+    "description": "Collaborative offensive and defensive validation, knowledge transfer and detection improvement."
+  },
+  {
+    "id": "cloud-security",
+    "name": "Cloud Security",
+    "icon": "\u2601",
+    "count": 29,
+    "description": "Cloud identity, IAM, storage, workloads, containers and cloud-native attack surfaces."
+  },
+  {
+    "id": "ai-security",
+    "name": "AI Security",
+    "icon": "\u25c7",
+    "count": 28,
+    "description": "LLM security, prompt injection, RAG, MCP, AI agents and adversarial machine learning."
+  }
+]
