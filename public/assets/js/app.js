@@ -1,28 +1,36 @@
 
 let TERMS = [], CATEGORIES = [];
 async function loadData(){
-  const [tr, cr] = await Promise.all([fetch('/data/terms.json'), fetch('/data/categories.json')]);
+  const [tr, cr] = await Promise.all([fetch('/data/terms.json',{cache:'no-store'}), fetch('/data/categories.json',{cache:'no-store'})]);
   TERMS = await tr.json(); CATEGORIES = await cr.json();
 }
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function diffClass(d){return d==='Beginner'?'green':d==='Advanced'?'red':'yellow'}
 function termUrl(t){return `/term/?id=${encodeURIComponent(t.id)}`}
 function categoryUrl(c){return `/category/?id=${encodeURIComponent(c.id)}`}
+function visualUrl(t){return `/assets/img/terms/${encodeURIComponent(t.id)}.svg`}
 function doSearch(inputId='heroSearch', resultsId='searchResults'){
   const q=(document.getElementById(inputId)?.value||'').trim().toLowerCase();
   const box=document.getElementById(resultsId); if(!box)return;
   if(!q){box.classList.remove('show');box.innerHTML='';return}
-  const hits=TERMS.filter(t=>[t.term,t.category,t.shortDefinition,...t.tags].join(' ').toLowerCase().includes(q)).slice(0,8);
-  box.innerHTML=hits.length?hits.map(t=>`<a class="result" href="${termUrl(t)}"><b>${esc(t.term)}</b><span>${esc(t.category)} · ${esc(t.shortDefinition)}</span></a>`).join(''):`<div class="result"><b>No matching term yet</b><span>CyberDict v0.1 is intentionally starting with a curated seed set.</span></div>`;
+  const hits=TERMS.filter(t=>[t.term,t.full,t.category,t.shortDefinition,...(t.tags||[])].join(' ').toLowerCase().includes(q)).slice(0,10);
+  box.innerHTML=hits.length?hits.map(t=>`<a class="result" href="${termUrl(t)}"><b>${esc(t.term)}</b><span>${esc(t.full||t.category)} · ${esc(t.shortDefinition)}</span></a>`).join(''):`<div class="result"><b>No matching term yet</b><span>CyberDict is growing from a reviewed seed set.</span></div>`;
   box.classList.add('show');
 }
 function renderHome(){
   const cats=document.getElementById('categories');
-  if(cats) cats.innerHTML=CATEGORIES.slice(0,12).map((c,i)=>`<a class="cat" href="${categoryUrl(c)}"><div class="ic">${c.icon}</div><div><b>${esc(c.name)}</b><span>${c.count} terms</span></div></a>`).join('');
-  const grid=document.getElementById('featuredTerms');
-  if(grid) grid.innerHTML=TERMS.slice(0,9).map((t,i)=>`<a class="term-card" href="${termUrl(t)}"><div class="top"><div class="symbol">${['▤','◎','⌘','◉','⬡','◌','▣','⚙','↥'][i%9]}</div><div><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p></div></div><div class="pills"><span class="pill green">SECTOR::${esc(t.categoryId.toUpperCase().replaceAll('-','_'))}</span><span class="pill ${diffClass(t.difficulty)}">LEVEL::${esc(t.difficulty.toUpperCase())}</span></div></a>`).join('');
-  const rel=document.getElementById('popularTerms');
-  if(rel) rel.innerHTML=TERMS.slice(0,6).map(t=>`<a class="rel-item" href="${termUrl(t)}"><span>${esc(t.term)}</span><small>${esc(t.category)} →</small></a>`).join('');
+  if(cats) cats.innerHTML=CATEGORIES.slice(0,12).map(c=>`<a class="cat" href="${categoryUrl(c)}"><div class="ic">${c.icon}</div><div><b>${esc(c.name)}</b><span>${c.count} concepts</span></div></a>`).join('');
+  const essentialIds=['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response'];
+  const essentials=essentialIds.map(id=>TERMS.find(t=>t.id===id)).filter(Boolean);
+  const featured=document.getElementById('featuredPrimary');
+  if(featured && essentials[0]){
+    const t=essentials[4] || essentials[0];
+    featured.innerHTML=`<div class="content"><div class="kicker">// FEATURED TERM</div><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p><div class="pills"><span class="pill purple">${esc(t.category)}</span><span class="pill ${diffClass(t.difficulty)}">${esc(t.difficulty)}</span></div><div style="margin-top:auto;padding-top:16px"><a style="color:var(--green);font-size:10px;font-weight:800" href="${termUrl(t)}">EXPLORE TERM →</a></div></div><a class="visual" href="${termUrl(t)}"><img src="${visualUrl(t)}" alt="${esc(t.term)} visual"></a>`;
+  }
+  const trending=document.getElementById('trending');
+  if(trending) trending.innerHTML=essentials.slice(0,8).map(t=>`<a href="${termUrl(t)}"><span>${esc(t.term)}</span><small>${esc(t.full||t.category)} →</small></a>`).join('');
+  const essentialGrid=document.getElementById('essentialGrid');
+  if(essentialGrid) essentialGrid.innerHTML=essentials.map((t,i)=>`<a class="essential-card" href="${termUrl(t)}"><img src="${visualUrl(t)}" alt="${esc(t.term)} visual"><div class="body"><h4>${String(i+1).padStart(2,'0')} · ${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p></div></a>`).join('');
 }
 async function initHome(){
   await loadData(); renderHome();
@@ -36,7 +44,7 @@ async function initCategory(){
   const c=CATEGORIES.find(x=>x.id===id)||CATEGORIES[0];
   document.getElementById('categoryTitle').textContent=c.name;
   document.getElementById('categoryDesc').textContent=c.description;
-  const list=TERMS.filter(t=>t.categoryId===c.id);
+  const list=TERMS.filter(t=>t.categoryId===c.id || t.category===c.name);
   document.getElementById('categoryTerms').innerHTML=(list.length?list:TERMS.slice(0,6)).map(t=>`<a class="term-card" href="${termUrl(t)}"><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p><div class="pills"><span class="pill ${diffClass(t.difficulty)}">${esc(t.difficulty)}</span></div></a>`).join('');
 }
 async function initTerm(){
@@ -48,13 +56,14 @@ async function initTerm(){
   document.getElementById('termSub').textContent=t.shortDefinition;
   document.getElementById('termCategory').textContent=t.category;
   document.getElementById('termDifficulty').textContent=t.difficulty;
-  document.getElementById('simple').textContent=t.simpleExplanation;
-  document.getElementById('technical').textContent=t.technicalExplanation;
-  document.getElementById('offensive').textContent=t.offensiveRelevance;
-  document.getElementById('defensive').textContent=t.defensiveRelevance;
-  document.getElementById('mitre').textContent=t.mitre.length?t.mitre.join(', '):'N/A';
-  document.getElementById('cwe').textContent=t.cwe.length?t.cwe.join(', '):'N/A';
-  document.getElementById('owasp').textContent=t.owasp.length?t.owasp.join(', '):'N/A';
-  const related=TERMS.filter(x=>t.relatedTerms.includes(x.id));
+  document.getElementById('termVisual').innerHTML=`<img src="${visualUrl(t)}" alt="${esc(t.term)} visual">`;
+  document.getElementById('simple').textContent=t.simpleExplanation||t.shortDefinition;
+  document.getElementById('technical').textContent=t.technicalExplanation||'Technical explanation coming soon.';
+  document.getElementById('offensive').textContent=t.offensiveRelevance||'Offensive relevance coming soon.';
+  document.getElementById('defensive').textContent=t.defensiveRelevance||'Defensive relevance coming soon.';
+  document.getElementById('mitre').textContent=(t.mitre||[]).length?t.mitre.join(', '):'N/A';
+  document.getElementById('cwe').textContent=(t.cwe||[]).length?t.cwe.join(', '):'N/A';
+  document.getElementById('owasp').textContent=(t.owasp||[]).length?t.owasp.join(', '):'N/A';
+  const related=TERMS.filter(x=>(t.relatedTerms||[]).includes(x.id));
   document.getElementById('relatedList').innerHTML=(related.length?related:TERMS.filter(x=>x.id!==t.id).slice(0,5)).map(x=>`<a href="${termUrl(x)}">${esc(x.term)}</a>`).join('');
 }

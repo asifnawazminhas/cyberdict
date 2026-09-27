@@ -77,3 +77,17 @@ Asif Nawaz Minhas
 ## License
 
 MIT
+
+## v0.2
+
+- Rebuilt the homepage into a more premium cybersecurity knowledge platform.
+- Reduced repetitive neon-green outlines and introduced stronger content hierarchy.
+- Added layered charcoal cards, selective green glow, cyan/amber/violet mode accents and improved spacing.
+- Added a new hero visual and refined search experience.
+- Added 20 essential cybersecurity explanations:
+  CTF, C2, Red Team, Blue Team, Purple Team, SOC, SIEM, EDR, OSINT, Phishing,
+  Privilege Escalation, Persistence, Lateral Movement, Pivoting, TTPs, IoC,
+  MITRE ATT&CK, Vulnerability, Exploit and Incident Response.
+- Added a dedicated visual SVG for every one of those 20 terms.
+- Added term-page visual artwork.
+- Added a 20-term visual explainer section on the homepage.

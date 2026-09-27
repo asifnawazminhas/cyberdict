@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#050807"/>
+    <stop offset="1" stop-color="#0a120d"/>
+  </linearGradient>
+  <radialGradient id="glow">
+    <stop offset="0" stop-color="#ba7cff" stop-opacity=".25"/>
+    <stop offset="1" stop-color="#ba7cff" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+    <path d="M38 0H0V38" fill="none" stroke="#ba7cff" stroke-opacity=".07"/>
+  </pattern>
+  <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<rect width="1200" height="675" fill="url(#grid)"/>
+<circle cx="830" cy="320" r="310" fill="url(#glow)"/>
+<path d="M70 78H1130M70 595H1130" stroke="#ba7cff" stroke-opacity=".25"/>
+<text x="75" y="120" fill="#ba7cff" font-family="monospace" font-size="22" font-weight="700">CYBERDICT // TERM 05</text>
+<text x="75" y="205" fill="#f3f7f4" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="800">Purple Team</text>
+<text x="75" y="252" fill="#9aada0" font-family="Arial,Helvetica,sans-serif" font-size="27">Purple Teaming</text>
+<g transform="translate(750 170)">
+  <circle cx="170" cy="170" r="148" fill="#07100a" stroke="#ba7cff" stroke-width="3"/>
+  <circle cx="170" cy="170" r="112" fill="none" stroke="#ba7cff" stroke-opacity=".25"/>
+  <circle cx="170" cy="170" r="75" fill="none" stroke="#ba7cff" stroke-opacity=".18"/>
+  <text x="170" y="195" text-anchor="middle" fill="#ba7cff" font-family="Arial,Helvetica,sans-serif" font-size="88" font-weight="800">◉</text>
+</g>
+<rect x="75" y="360" width="510" height="132" rx="14" fill="#09120d" stroke="#ba7cff" stroke-opacity=".4"/>
+<text x="100" y="402" fill="#ba7cff" font-family="monospace" font-size="17" font-weight="700">CATEGORY::PURPLE TEAMING</text>
+<text x="100" y="445" fill="#c9d5cc" font-family="Arial,Helvetica,sans-serif" font-size="24">Purple Team</text>
+<text x="75" y="635" fill="#6e8174" font-family="monospace" font-size="16">OPEN KNOWLEDGE  //  PRACTICAL SECURITY  //  COMMUNITY DRIVEN</text>
+</svg>

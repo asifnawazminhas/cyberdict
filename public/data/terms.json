@@ -116,46 +116,50 @@
     "difficulty": "Beginner",
     "shortDefinition": "Endpoint Detection and Response monitors endpoint activity to detect, investigate and respond to suspicious behaviour.",
     "simpleExplanation": "EDR gives defenders visibility into what is happening on laptops and servers and helps them respond to suspicious activity.",
-    "technicalExplanation": "EDR platforms collect endpoint telemetry such as process, file, network and identity events. They correlate behaviour, generate detections and may support containment and response actions.",
-    "offensiveRelevance": "Security assessments can validate whether realistic attack behaviours are detected and whether controls are effective.",
-    "defensiveRelevance": "Tune detections, preserve telemetry, validate response workflows and regularly test detection coverage.",
+    "technicalExplanation": "EDR platforms collect process, file, registry, network and identity telemetry. They generate detections and may provide isolation, investigation and remediation capabilities.",
+    "offensiveRelevance": "Security assessments often validate whether realistic behaviours are detected or blocked by endpoint controls.",
+    "defensiveRelevance": "EDR provides high-value endpoint visibility, behavioural detection and response functions.",
     "tags": [
-      "Detection",
       "Endpoint",
+      "Detection",
       "Telemetry"
     ],
     "mitre": [],
     "cwe": [],
     "owasp": [],
     "relatedTerms": [
-      "xdr",
+      "soc",
       "siem",
-      "purple-teaming"
-    ]
+      "c2"
+    ],
+    "full": "Endpoint Detection and Response",
+    "accent": "#49bfff"
   },
   {
     "id": "mitre-attck",
     "term": "MITRE ATT&CK",
-    "category": "Blue Teaming",
+    "category": "Threat Intelligence",
     "categoryId": "blue-teaming",
     "difficulty": "Beginner",
-    "shortDefinition": "A knowledge base of adversary tactics and techniques based on real-world observations.",
-    "simpleExplanation": "ATT&CK provides a shared language for describing how attackers behave.",
-    "technicalExplanation": "MITRE ATT&CK organises adversary behaviour into tactics, techniques and sub-techniques that can be used for threat modelling, detection engineering, red teaming and purple teaming.",
-    "offensiveRelevance": "Used to map adversary behaviours and design realistic simulations.",
-    "defensiveRelevance": "Used to structure detections, gap analysis and control validation.",
+    "shortDefinition": "A knowledge base that maps real-world adversary tactics and techniques.",
+    "simpleExplanation": "ATT&CK gives security teams a shared language for describing attacker behaviour.",
+    "technicalExplanation": "MITRE ATT&CK organises behaviours into tactics, techniques and sub-techniques and is widely used for adversary emulation, detection engineering and gap analysis.",
+    "offensiveRelevance": "Red and purple teams map simulated behaviours to ATT&CK to make exercises structured and comparable.",
+    "defensiveRelevance": "Blue teams use ATT&CK to organise detections, hunts and coverage assessments.",
     "tags": [
       "Framework",
-      "Detection",
-      "Threat Modelling"
+      "Threat Intelligence",
+      "Detection"
     ],
     "mitre": [],
     "cwe": [],
     "owasp": [],
     "relatedTerms": [
-      "purple-teaming",
-      "detection-engineering"
-    ]
+      "ttps",
+      "purple-team"
+    ],
+    "full": "MITRE ATT&CK",
+    "accent": "#ba7cff"
   },
   {
     "id": "cve",
@@ -215,14 +219,14 @@
     "category": "Red Teaming",
     "categoryId": "red-teaming",
     "difficulty": "Intermediate",
-    "shortDefinition": "The process of obtaining higher privileges than those initially available.",
-    "simpleExplanation": "An attacker starts with limited access and finds a way to gain administrator, root or equivalent privileges.",
-    "technicalExplanation": "Privilege escalation can result from misconfigurations, vulnerable software, credential exposure, token abuse, weak service permissions and trust relationships.",
-    "offensiveRelevance": "Core phase of penetration testing and adversary simulation.",
-    "defensiveRelevance": "Harden permissions, patch systems, reduce local admin rights and monitor sensitive privilege changes.",
+    "shortDefinition": "The process of gaining higher privileges than those initially available.",
+    "simpleExplanation": "An attacker begins with limited access and finds a way to become administrator, root or another more privileged identity.",
+    "technicalExplanation": "Privilege escalation can result from vulnerable software, weak permissions, exposed credentials, unsafe services, token abuse or misconfigured trust relationships.",
+    "offensiveRelevance": "Privilege escalation is a core assessment area after initial access.",
+    "defensiveRelevance": "Defenders reduce risk through least privilege, patching, secure configuration and monitoring sensitive privilege changes.",
     "tags": [
-      "Privilege",
       "Post-Exploitation",
+      "Privilege",
       "Hardening"
     ],
     "mitre": [
@@ -232,8 +236,11 @@
     "owasp": [],
     "relatedTerms": [
       "lateral-movement",
-      "persistence"
-    ]
+      "persistence",
+      "exploit"
+    ],
+    "full": "Privilege Escalation",
+    "accent": "#ffc857"
   },
   {
     "id": "prompt-injection",
@@ -494,14 +501,14 @@
     "categoryId": "red-teaming",
     "difficulty": "Intermediate",
     "shortDefinition": "Techniques used to move from one compromised system or identity to another within an environment.",
-    "simpleExplanation": "After gaining a foothold, an attacker tries to reach additional systems or accounts.",
-    "technicalExplanation": "Lateral movement may use remote services, credential material, trust relationships and administrative tooling.",
-    "offensiveRelevance": "Used to validate segmentation, credential boundaries and administrative trust.",
-    "defensiveRelevance": "Segment networks, reduce credential exposure and monitor remote administration.",
+    "simpleExplanation": "After gaining access to one system, an attacker tries to reach other systems or accounts.",
+    "technicalExplanation": "Lateral movement can use remote services, administrative tools, stolen credentials, trust relationships or exposed management interfaces.",
+    "offensiveRelevance": "It validates segmentation, identity boundaries and remote-administration controls.",
+    "defensiveRelevance": "Defenders limit lateral movement through segmentation, credential protection and monitoring remote access behaviour.",
     "tags": [
-      "Red Teaming",
       "Movement",
-      "Credentials"
+      "Credentials",
+      "Remote Services"
     ],
     "mitre": [
       "TA0008"
@@ -509,8 +516,430 @@
     "cwe": [],
     "owasp": [],
     "relatedTerms": [
+      "pivoting",
       "pass-the-hash",
       "privilege-escalation"
+    ],
+    "full": "Lateral Movement",
+    "accent": "#00ff66"
+  },
+  {
+    "id": "ctf",
+    "term": "CTF",
+    "full": "Capture The Flag",
+    "category": "Learning",
+    "difficulty": "Beginner",
+    "accent": "#00ff66",
+    "shortDefinition": "A hands-on cybersecurity challenge format used to practise technical security skills in a controlled environment.",
+    "simpleExplanation": "CTFs are security competitions or practice labs where participants solve challenges to find hidden flags. They are commonly used to learn web security, cryptography, forensics, reverse engineering, binary exploitation and other practical skills.",
+    "technicalExplanation": "A Capture The Flag environment typically contains intentionally vulnerable systems, puzzles or challenge services. Players analyse the challenge, identify the weakness or intended technique and recover a flag string that proves completion.",
+    "offensiveRelevance": "CTFs help security testers practise exploitation, enumeration, privilege escalation, reversing and problem-solving without targeting real production systems.",
+    "defensiveRelevance": "Blue-team and incident-response CTFs can teach log analysis, threat hunting, forensics and detection engineering.",
+    "tags": [
+      "Learning",
+      "Hands-on",
+      "Competition"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "red-team",
+      "blue-team",
+      "exploit"
+    ]
+  },
+  {
+    "id": "c2",
+    "term": "C2",
+    "full": "Command and Control",
+    "category": "Red Teaming",
+    "difficulty": "Intermediate",
+    "accent": "#00ff66",
+    "shortDefinition": "Command and Control infrastructure is used to communicate with and manage systems under an operator's control during adversary simulations.",
+    "simpleExplanation": "In red-team exercises, C2 is the communication layer between an operator and a controlled test system. It lets the operator issue tasks and receive results.",
+    "technicalExplanation": "C2 frameworks provide tasking, session management, payload communications, transport profiles and operator workflows. Defenders study C2 patterns to identify suspicious network and endpoint behaviour.",
+    "offensiveRelevance": "Red teams use C2 in authorised simulations to emulate how real adversaries maintain remote control after initial access.",
+    "defensiveRelevance": "Defenders monitor unusual outbound traffic, beaconing patterns, suspicious processes and anomalous protocol use associated with C2 activity.",
+    "tags": [
+      "Command and Control",
+      "Red Teaming",
+      "Infrastructure"
+    ],
+    "mitre": [
+      "TA0011"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "red-team",
+      "edr",
+      "ioc"
+    ]
+  },
+  {
+    "id": "red-team",
+    "term": "Red Team",
+    "full": "Red Teaming",
+    "category": "Red Teaming",
+    "difficulty": "Beginner",
+    "accent": "#ff4f64",
+    "shortDefinition": "An offensive security team that simulates realistic adversary behaviour to test people, processes and technology.",
+    "simpleExplanation": "A red team acts like an attacker in a controlled and authorised exercise. The goal is to test how well an organisation can prevent, detect and respond to realistic attacks.",
+    "technicalExplanation": "Red-team engagements may combine initial access, privilege escalation, persistence, credential access, lateral movement and objective-based activity while following agreed rules of engagement.",
+    "offensiveRelevance": "Red teaming validates realistic attack paths and operational security controls beyond isolated vulnerability testing.",
+    "defensiveRelevance": "Findings reveal detection gaps, response weaknesses and opportunities to improve security architecture and monitoring.",
+    "tags": [
+      "Offensive Security",
+      "Adversary Simulation",
+      "Assessment"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "blue-team",
+      "purple-team",
+      "c2"
+    ]
+  },
+  {
+    "id": "blue-team",
+    "term": "Blue Team",
+    "full": "Blue Teaming",
+    "category": "Blue Teaming",
+    "difficulty": "Beginner",
+    "accent": "#49bfff",
+    "shortDefinition": "A defensive security team focused on preventing, detecting, investigating and responding to security threats.",
+    "simpleExplanation": "The blue team protects systems and monitors for suspicious activity. It investigates alerts, contains incidents and improves defensive controls.",
+    "technicalExplanation": "Blue-team work includes telemetry collection, detection engineering, endpoint and network monitoring, incident response, threat hunting and security hardening.",
+    "offensiveRelevance": "Offensive teams rely on blue-team feedback to understand which behaviours were detected and how realistic attack simulations affected controls.",
+    "defensiveRelevance": "Blue teams operate the defensive capabilities used to identify and contain attacker behaviour.",
+    "tags": [
+      "Defensive Security",
+      "Detection",
+      "Response"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "red-team",
+      "purple-team",
+      "soc",
+      "siem",
+      "edr"
+    ]
+  },
+  {
+    "id": "purple-team",
+    "term": "Purple Team",
+    "full": "Purple Teaming",
+    "category": "Purple Teaming",
+    "difficulty": "Beginner",
+    "accent": "#ba7cff",
+    "shortDefinition": "A collaborative approach where offensive and defensive security teams work together to improve security outcomes.",
+    "simpleExplanation": "Purple teaming brings red and blue teams together. Instead of working separately, they share what they are doing, what is detected and what needs improvement.",
+    "technicalExplanation": "Purple-team exercises often combine attack simulation, telemetry review, detection validation, rapid feedback and knowledge transfer in short iterative cycles.",
+    "offensiveRelevance": "Red-team techniques are used transparently to validate whether security controls observe and block realistic behaviour.",
+    "defensiveRelevance": "Blue teams receive direct feedback that helps improve detections, response playbooks and control coverage.",
+    "tags": [
+      "Collaboration",
+      "Detection Validation",
+      "Knowledge Transfer"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "red-team",
+      "blue-team",
+      "mitre-attck"
+    ]
+  },
+  {
+    "id": "soc",
+    "term": "SOC",
+    "full": "Security Operations Center",
+    "category": "Blue Teaming",
+    "difficulty": "Beginner",
+    "accent": "#00ff66",
+    "shortDefinition": "A Security Operations Center is the team and capability responsible for monitoring, triaging and responding to security events.",
+    "simpleExplanation": "A SOC watches security alerts and investigates suspicious activity across an organisation.",
+    "technicalExplanation": "SOC teams commonly use SIEM, EDR, network telemetry, threat intelligence and case-management systems to monitor events and coordinate incident response.",
+    "offensiveRelevance": "Red and purple teams evaluate whether SOC processes detect simulated attacker activity and escalate incidents effectively.",
+    "defensiveRelevance": "The SOC is a central operational function for detection, triage, escalation and coordinated response.",
+    "tags": [
+      "Operations",
+      "Monitoring",
+      "Incident Response"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "siem",
+      "edr",
+      "incident-response"
+    ]
+  },
+  {
+    "id": "siem",
+    "term": "SIEM",
+    "full": "Security Information and Event Management",
+    "category": "Blue Teaming",
+    "difficulty": "Beginner",
+    "accent": "#00ff66",
+    "shortDefinition": "A platform that centralises security logs and helps correlate, search and analyse events.",
+    "simpleExplanation": "A SIEM collects logs from many systems so defenders can search them and detect suspicious patterns.",
+    "technicalExplanation": "SIEM platforms ingest and normalise logs, support correlation rules, dashboards, alerts, threat hunting and investigation workflows.",
+    "offensiveRelevance": "Purple teams can use SIEM visibility to confirm whether attack behaviours generated the expected telemetry.",
+    "defensiveRelevance": "SIEM is a core detection and investigation capability for many SOC environments.",
+    "tags": [
+      "Logging",
+      "Detection",
+      "Monitoring"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "soc",
+      "edr",
+      "ioc"
+    ]
+  },
+  {
+    "id": "osint",
+    "term": "OSINT",
+    "full": "Open Source Intelligence",
+    "category": "Red Teaming",
+    "difficulty": "Beginner",
+    "accent": "#00ff66",
+    "shortDefinition": "Intelligence gathered from publicly available information sources.",
+    "simpleExplanation": "OSINT means collecting useful information from public sources such as websites, documents, social media, DNS records and public databases.",
+    "technicalExplanation": "OSINT workflows may combine search engines, certificate transparency, public code repositories, metadata, archives and public records to build context about an organisation or target.",
+    "offensiveRelevance": "Authorised assessments use OSINT to understand exposed assets, technologies, people and infrastructure before deeper testing.",
+    "defensiveRelevance": "Organisations use OSINT to understand their external exposure and identify information that may help attackers.",
+    "tags": [
+      "Reconnaissance",
+      "Public Data",
+      "Intelligence"
+    ],
+    "mitre": [
+      "TA0043"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "red-team",
+      "ioc"
+    ]
+  },
+  {
+    "id": "phishing",
+    "term": "Phishing",
+    "full": "Phishing",
+    "category": "Red Teaming",
+    "difficulty": "Beginner",
+    "accent": "#ff4f64",
+    "shortDefinition": "A social-engineering technique that attempts to influence users into revealing information or performing an action.",
+    "simpleExplanation": "Phishing usually uses deceptive email, messages or websites to persuade someone to click, log in, open a file or share sensitive information.",
+    "technicalExplanation": "Phishing simulations may test awareness, mail controls, authentication workflows and detection capabilities under clearly authorised conditions.",
+    "offensiveRelevance": "Red teams may emulate phishing to test initial-access resilience and human security controls.",
+    "defensiveRelevance": "Defences include user awareness, MFA, email security, domain protection and detection of suspicious links and attachments.",
+    "tags": [
+      "Social Engineering",
+      "Initial Access",
+      "Awareness"
+    ],
+    "mitre": [
+      "T1566"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "red-team",
+      "incident-response"
+    ]
+  },
+  {
+    "id": "persistence",
+    "term": "Persistence",
+    "full": "Persistence",
+    "category": "Red Teaming",
+    "difficulty": "Intermediate",
+    "accent": "#00ff66",
+    "shortDefinition": "Methods used to maintain access to a system or environment over time.",
+    "simpleExplanation": "Persistence is how an attacker tries to keep access even after a reboot, password change or temporary interruption.",
+    "technicalExplanation": "Persistence can involve services, scheduled tasks, registry mechanisms, account changes, startup locations, cloud identities or other trusted execution paths.",
+    "offensiveRelevance": "Authorised simulations test whether persistence activity is prevented or detected.",
+    "defensiveRelevance": "Defenders monitor startup mechanisms, identity changes and unusual long-lived access patterns.",
+    "tags": [
+      "Persistence",
+      "Post-Exploitation",
+      "Detection"
+    ],
+    "mitre": [
+      "TA0003"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "privilege-escalation",
+      "lateral-movement"
+    ]
+  },
+  {
+    "id": "pivoting",
+    "term": "Pivoting",
+    "full": "Pivoting",
+    "category": "Red Teaming",
+    "difficulty": "Intermediate",
+    "accent": "#00ff66",
+    "shortDefinition": "Using one compromised or controlled host as a bridge to reach systems that are otherwise inaccessible.",
+    "simpleExplanation": "A pivot lets an operator route traffic through one system to reach another network or service.",
+    "technicalExplanation": "Pivoting may use tunnels, proxies, port forwarding or routing mechanisms to access internal systems through an authorised foothold.",
+    "offensiveRelevance": "Used in controlled assessments to validate internal segmentation and reachability.",
+    "defensiveRelevance": "Monitor unexpected tunnels, unusual routing behaviour and systems communicating across normally separated network zones.",
+    "tags": [
+      "Networking",
+      "Tunnelling",
+      "Segmentation"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "lateral-movement",
+      "c2"
+    ]
+  },
+  {
+    "id": "ttps",
+    "term": "TTPs",
+    "full": "Tactics, Techniques and Procedures",
+    "category": "Threat Intelligence",
+    "difficulty": "Beginner",
+    "accent": "#ba7cff",
+    "shortDefinition": "A way to describe how adversaries operate at strategic, technical and procedural levels.",
+    "simpleExplanation": "TTPs describe what attackers try to achieve, how they do it and the procedures they follow.",
+    "technicalExplanation": "Tactics represent objectives, techniques describe methods and procedures capture concrete implementations or observed behaviours.",
+    "offensiveRelevance": "Red teams use TTPs to model realistic adversary behaviour.",
+    "defensiveRelevance": "Defenders use TTPs to design detections, hunts and control validation.",
+    "tags": [
+      "Threat Intelligence",
+      "Adversary Behaviour",
+      "Frameworks"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "mitre-attck",
+      "ioc"
+    ]
+  },
+  {
+    "id": "ioc",
+    "term": "IoC",
+    "full": "Indicator of Compromise",
+    "category": "Threat Intelligence",
+    "difficulty": "Beginner",
+    "accent": "#ff4f64",
+    "shortDefinition": "Observable data that may indicate malicious or suspicious activity.",
+    "simpleExplanation": "An IoC can be something like a malicious IP address, file hash, domain or other artefact associated with suspicious activity.",
+    "technicalExplanation": "Indicators are useful for enrichment and detection but can be fragile because adversaries can change infrastructure, files and domains quickly.",
+    "offensiveRelevance": "Red teams may generate test indicators so defenders can validate telemetry and detection workflows.",
+    "defensiveRelevance": "Defenders use IoCs for detection, blocking, hunting and incident scoping.",
+    "tags": [
+      "Threat Intelligence",
+      "Detection",
+      "Indicators"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "siem",
+      "edr",
+      "ttps"
+    ]
+  },
+  {
+    "id": "vulnerability",
+    "term": "Vulnerability",
+    "full": "Vulnerability",
+    "category": "Vulnerability Research",
+    "difficulty": "Beginner",
+    "accent": "#ff4f64",
+    "shortDefinition": "A weakness in software, hardware, configuration or process that can be exploited to create security impact.",
+    "simpleExplanation": "A vulnerability is a security weakness that can allow an attacker to do something they should not be able to do.",
+    "technicalExplanation": "Vulnerabilities can arise from design flaws, implementation bugs, unsafe defaults, insecure configuration, trust failures or weak access controls.",
+    "offensiveRelevance": "Penetration testers identify and validate vulnerabilities to demonstrate real-world risk.",
+    "defensiveRelevance": "Organisations reduce exposure by patching, hardening, monitoring and prioritising remediation.",
+    "tags": [
+      "Security Weakness",
+      "Risk",
+      "Remediation"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "exploit",
+      "cve"
+    ]
+  },
+  {
+    "id": "exploit",
+    "term": "Exploit",
+    "full": "Exploit",
+    "category": "Vulnerability Research",
+    "difficulty": "Beginner",
+    "accent": "#ffc857",
+    "shortDefinition": "Code, data or a technique that takes advantage of a vulnerability to achieve a security-relevant outcome.",
+    "simpleExplanation": "An exploit is the method used to turn a vulnerability into an actual effect.",
+    "technicalExplanation": "Exploitation can result in code execution, access-control bypass, information disclosure, privilege escalation or other impact depending on the vulnerability.",
+    "offensiveRelevance": "Security testers use controlled exploitation to verify that a reported weakness is real and to understand its impact.",
+    "defensiveRelevance": "Exploit awareness helps defenders prioritise remediation and validate compensating controls.",
+    "tags": [
+      "Vulnerability Research",
+      "Validation",
+      "Impact"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "vulnerability",
+      "privilege-escalation"
+    ]
+  },
+  {
+    "id": "incident-response",
+    "term": "Incident Response",
+    "full": "Incident Response",
+    "category": "Blue Teaming",
+    "difficulty": "Beginner",
+    "accent": "#00ff66",
+    "shortDefinition": "The structured process of detecting, containing, eradicating and recovering from security incidents.",
+    "simpleExplanation": "Incident response is how an organisation handles a security breach or serious security event.",
+    "technicalExplanation": "Typical phases include preparation, detection and analysis, containment, eradication, recovery and lessons learned.",
+    "offensiveRelevance": "Red-team and purple-team exercises can validate whether incident-response processes activate effectively.",
+    "defensiveRelevance": "Incident response coordinates technical and organisational actions during security events.",
+    "tags": [
+      "Response",
+      "Containment",
+      "Recovery"
+    ],
+    "mitre": [],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "soc",
+      "siem",
+      "edr"
     ]
   }
 ]

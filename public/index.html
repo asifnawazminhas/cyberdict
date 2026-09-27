@@ -1,51 +1,72 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CyberDict · Cybersecurity Knowledge Explorer</title><meta name="description" content="A community cybersecurity dictionary and interactive knowledge explorer for offensive security, defensive security, purple teaming and AI security.">
-<link rel="stylesheet" href="/assets/css/style.css?v=0.1.0"></head><body>
-<header class="topbar">
-  <div class="wrap nav">
-    <a class="brand" href="/"><div class="logo"><span>↗</span></div><div><h1>Cyber<b>Dict</b></h1><small>CYBERSECURITY KNOWLEDGE EXPLORER</small></div></a>
-    <nav class="navlinks"><a class="active" href="/">Home</a><a class="" href="/explore/">Dictionary</a><a class="" href="/category/">Categories</a><a class="" href="/learn/">Learn</a><a class="" href="/about/">About</a></nav>
-    <div class="nav-actions"><a class="icon-btn" href="https://github.com/asifnawazminhas/cyberdict" target="_blank" rel="noopener">GH</a></div>
-  </div>
-</header>
+<title>CyberDict · Cybersecurity Knowledge Explorer</title>
+<meta name="description" content="A community cybersecurity dictionary and interactive knowledge explorer for offensive security, defensive security, purple teaming and AI security.">
+<link rel="stylesheet" href="/assets/css/style.css?v=0.2.0"></head><body>
+<header class="topbar"><div class="wrap nav">
+<a class="brand" href="/"><div class="logo"><span>›</span></div><div><h1>Cyber<b>Dict</b></h1><small>CYBERSECURITY KNOWLEDGE EXPLORER</small></div></a>
+<nav class="navlinks"><a class="active" href="/">Home</a><a href="/explore/">Dictionary</a><a href="/category/">Categories</a><a href="/learn/">Learn</a><a href="/about/">About</a></nav>
+<div class="nav-actions"><a class="icon-btn" href="https://github.com/asifnawazminhas/cyberdict" target="_blank" rel="noopener">GitHub</a></div>
+</div></header>
+
 <main>
 <section class="hero"><div class="wrap">
 <div class="hero-grid">
 <div>
-<div class="kicker">v0.1.0 &nbsp; // OPEN KNOWLEDGE &nbsp; // STRONGER SECURITY</div>
-<h2>Cyber<span>Dict</span></h2><h3>Cybersecurity Knowledge Explorer</h3>
-<p>Explore real-world cybersecurity concepts, tools, techniques and terminology across offensive security, defensive security, purple teaming, cloud and AI security.</p>
-<div class="searchbar"><input id="heroSearch" placeholder="Search for a cybersecurity term... (e.g. Kerberoasting, SSRF, OAuth, EDR)"><button onclick="doSearch()">Search</button></div>
+<div class="kicker">v0.2.0 &nbsp; // OPEN KNOWLEDGE &nbsp; // STRONGER SECURITY</div>
+<h2>Cyber<span>Dict</span></h2>
+<h3>Cybersecurity Knowledge Explorer</h3>
+<p>Understand cybersecurity concepts, techniques, roles and frameworks through clear definitions, practical context and visual explanations.</p>
+<div class="searchbar"><input id="heroSearch" placeholder="Search Kerberoasting, CTF, C2, Purple Team, OAuth, WDAC..."><button onclick="doSearch()">Search →</button></div>
 <div id="searchResults" class="results"></div>
-<div class="examples"><span>EXAMPLES:</span>
-<a href="#" data-example="Kerberoasting">Kerberoasting</a><span>|</span><a href="#" data-example="Pass-the-Hash">Pass-the-Hash</a><span>|</span><a href="#" data-example="SSRF">SSRF</a><span>|</span><a href="#" data-example="OAuth">OAuth</a><span>|</span><a href="#" data-example="Prompt Injection">Prompt Injection</a></div>
+<div class="popular"><span>POPULAR TERMS</span>
+<a href="#" data-example="CTF">CTF</a><a href="#" data-example="C2">C2</a><a href="#" data-example="Red Team">Red Team</a><a href="#" data-example="Blue Team">Blue Team</a><a href="#" data-example="Purple Team">Purple Team</a><a href="#" data-example="MITRE ATT&CK">MITRE ATT&CK</a>
 </div>
-<div class="globe-card"><div class="globe"></div><div class="statusbox"><span>STATUS</span><b>● ONLINE</b><span>DICTIONARY</span><b>CURATED</b><span>CATEGORIES</span><b>12</b><span>SCOPE</span><b>GLOBAL</b></div></div>
 </div>
-<div class="quick">
-<a href="#featured"><i>⌕</i><div><b>SEARCH</b><span>Find cybersecurity terms</span></div></a>
-<a href="/explore/"><i>⌘</i><div><b>EXPLORE</b><span>Browse related concepts</span></div></a>
-<a href="/learn/"><i>▤</i><div><b>LEARN</b><span>Guides, concepts and paths</span></div></a>
-<a href="#ask"><i>□</i><div><b>ASK AI</b><span>Coming in a later phase</span></div></a>
+<div class="hero-visual" aria-label="CyberDict knowledge network visual"></div>
 </div>
+
+<div class="mode-grid">
+<a class="mode search" href="#essential"><div class="mode-icon">⌕</div><div><b>Search</b><span>Find cybersecurity terms with clear, concise explanations.</span></div></a>
+<a class="mode explore" href="/explore/"><div class="mode-icon">▤</div><div><b>Explore</b><span>Browse related concepts, techniques and real-world context.</span></div></a>
+<a class="mode learn" href="/learn/"><div class="mode-icon">⌂</div><div><b>Learn</b><span>Follow structured concepts and learning paths.</span></div></a>
+<a class="mode ask" href="#ask"><div class="mode-icon">✦</div><div><b>Ask AI</b><span>AI-assisted explanations are planned for a later phase.</span></div></a>
+</div>
+
 <div class="stats">
-<div class="stat"><div class="n">20+</div><small>CURATED SEED TERMS</small></div>
-<div class="stat"><div class="n">12</div><small>KNOWLEDGE SECTORS</small></div>
-<div class="stat"><div class="n">4</div><small>LEARNING MODES</small></div>
-<div class="stat"><div class="n">MITRE / CWE / OWASP</div><small>FRAMEWORK MAPPINGS</small></div>
+<div class="stat"><div class="n">40+</div><div><small>CURATED TERMS</small><em>Structured seed content</em></div></div>
+<div class="stat"><div class="n">12</div><div><small>KNOWLEDGE SECTORS</small><em>Broad security coverage</em></div></div>
+<div class="stat"><div class="n">20</div><div><small>VISUAL EXPLAINERS</small><em>Essential terminology</em></div></div>
+<div class="stat"><div class="n">MITRE / CWE / OWASP</div><div><small>FRAMEWORK MAPPINGS</small><em>Context where relevant</em></div></div>
 </div>
 </div></section>
 
-<section class="section"><div class="wrap"><div class="section-head"><h3>EXPLORE BY CATEGORY</h3><a href="/category/">VIEW ALL CATEGORIES →</a></div><div id="categories" class="categories"></div></div></section>
+<section class="section"><div class="wrap">
+<div class="section-head"><h3>EXPLORE BY CATEGORY</h3><a href="/category/">VIEW ALL CATEGORIES →</a></div>
+<div id="categories" class="categories"></div>
+</div></section>
 
-<section class="section" id="featured"><div class="wrap"><div class="main-grid">
-<div><div class="section-head"><h3>FEATURED TERMS</h3><a href="/explore/">VIEW ALL TERMS →</a></div><div id="featuredTerms" class="terms-grid"></div></div>
-<aside class="side" id="ask"><div class="section-head"><h3>ASK CYBERDICT</h3></div>
-<div class="askbox"><textarea placeholder="Ask a question about a cybersecurity concept...&#10;(AI answers are planned for a later release.)"></textarea><div class="ask-row"><select><option>Mode: CyberDict Knowledge Base</option></select><button type="button" onclick="alert('Ask AI is planned for a later CyberDict release.')">ASK →</button></div></div>
-<div class="section-head" style="margin-top:14px"><h3>RELATED TERMS</h3></div><div class="related"><div class="tabs"><span class="active">Popular</span><span>Recent</span><span>Related</span></div><div id="popularTerms"></div></div>
+<section class="section"><div class="wrap"><div class="main-grid">
+<div>
+<div class="section-head"><h3>FEATURED KNOWLEDGE</h3><a href="/explore/">VIEW ALL TERMS →</a></div>
+<div class="featured-primary" id="featuredPrimary"></div>
+</div>
+<aside>
+<div class="section-head"><h3>TRENDING / ESSENTIAL</h3></div>
+<div class="trending" id="trending"></div>
 </aside>
 </div></div></section>
-</main>
-<footer class="footer"><div class="wrap row"><div><b style="color:#cfe2d5">Cyber<span style="color:#00ff66">Dict</span></b> · Community cybersecurity knowledge explorer</div><div>OPEN KNOWLEDGE · PRACTICAL SECURITY · COMMUNITY DRIVEN</div></div></footer>
 
-<script src="/assets/js/app.js?v=0.1.0"></script><script>initHome()</script></body></html>
+<section class="section" id="essential"><div class="wrap">
+<div class="section-head"><h3>20 ESSENTIAL CYBERSECURITY TERMS</h3><a href="/explore/">FULL DICTIONARY →</a></div>
+<div id="essentialGrid" class="essential-grid"></div>
+</div></section>
+
+<section class="section" id="ask"><div class="wrap">
+<div class="section-head"><h3>ASK CYBERDICT</h3></div>
+<div class="side-panel askbox">
+<textarea placeholder="Ask a question about a cybersecurity concept...&#10;(AI answers are planned for a later release.)"></textarea>
+<div class="ask-row"><select><option>Mode: CyberDict Knowledge Base</option></select><button type="button" onclick="alert('Ask AI is planned for a later CyberDict release.')">ASK →</button></div>
+</div>
+</div></section>
+</main><footer class="footer"><div class="wrap row"><div><b style="color:#cfe2d5">Cyber<span style="color:#00ff66">Dict</span></b> · Cybersecurity Knowledge Explorer</div><div>OPEN KNOWLEDGE · PRACTICAL SECURITY · COMMUNITY DRIVEN</div></div></footer>
+<script src="/assets/js/app.js?v=0.2.0"></script><script>initHome()</script></body></html>
