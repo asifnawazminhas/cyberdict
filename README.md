@@ -97,3 +97,11 @@ MIT
 
 - Added unique visual explainer images for the first 20 essential cybersecurity terms.
 - Updated the site to use the richer PNG visual cards on homepage and term pages for those concepts.
+
+
+## v0.6
+
+- Replaced the first 10 essential-term thumbnails with the complete, full-resolution unique visual explainers.
+- Removed forced 16:9 cropping from term pages and homepage cards.
+- Visual explainers now use their natural portrait aspect ratio and display in full.
+- First batch: CTF, C2, Red Team, Blue Team, Purple Team, Incident Response, Vulnerability, Exploit, MITRE ATT&CK and Phishing.
