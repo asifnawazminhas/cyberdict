@@ -979,7 +979,7 @@
     "category": "Authentication",
     "difficulty": "Beginner",
     "shortDefinition": "A security model that assumes no implicit trust and continuously verifies users, devices and access requests.",
-    "simpleExplanation": "Zero Trust follows the idea \u201cnever trust, always verify.\u201d Access decisions consider identity, device health, context, least privilege and segmentation rather than trusting users simply because they are inside a network.",
+    "simpleExplanation": "Zero Trust follows the idea “never trust, always verify.” Access decisions consider identity, device health, context, least privilege and segmentation rather than trusting users simply because they are inside a network.",
     "technicalExplanation": "Zero Trust architectures continuously evaluate identity, device posture, policy, resource sensitivity and risk. Common principles include strong authentication, least privilege, micro-segmentation, continuous monitoring and adaptive access controls.",
     "offensiveRelevance": "For security testers, Zero Trust changes attack paths by reducing implicit network trust and requiring repeated identity and device validation.",
     "defensiveRelevance": "Zero Trust can reduce lateral movement, excessive privilege and the impact of compromised accounts or devices.",
@@ -1056,6 +1056,102 @@
       "openid-connect",
       "zero-trust",
       "phishing"
+    ]
+  },
+  {
+    "id": "oauth-2-0",
+    "term": "OAuth 2.0",
+    "full": "OAuth 2.0",
+    "categoryId": "authentication",
+    "category": "Authentication",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A framework for delegated authorisation that lets applications obtain limited access to protected resources.",
+    "simpleExplanation": "OAuth 2.0 allows a user to grant an application limited access without giving that application the user password.",
+    "technicalExplanation": "OAuth 2.0 defines roles, grants and token flows between a resource owner, client, authorisation server and resource server. Access tokens represent delegated authorisation and are constrained by scopes, audience, lifetime and server policy.",
+    "offensiveRelevance": "Security testing focuses on redirect URI validation, state and PKCE handling, token leakage, scope enforcement, client trust boundaries and implementation mistakes.",
+    "defensiveRelevance": "Use strict redirect URI matching, PKCE where appropriate, short lived tokens, least privilege scopes, secure token storage and strong server side validation.",
+    "tags": [
+      "oauth",
+      "access token",
+      "authorisation",
+      "pkce",
+      "scopes"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-601",
+      "CWE-352"
+    ],
+    "owasp": [
+      "A07:2021 Identification and Authentication Failures"
+    ],
+    "relatedTerms": [
+      "oidc",
+      "mfa"
+    ]
+  },
+  {
+    "id": "oidc",
+    "term": "OIDC",
+    "full": "OpenID Connect",
+    "categoryId": "authentication",
+    "category": "Authentication",
+    "difficulty": "Intermediate",
+    "shortDefinition": "An identity layer on OAuth 2.0 that allows applications to verify user identity using standardised tokens and claims.",
+    "simpleExplanation": "OIDC adds authentication and identity information to OAuth 2.0 so an application can know who the user is.",
+    "technicalExplanation": "OIDC introduces the ID token, UserInfo endpoint, discovery metadata and standard claims. Relying parties validate signatures, issuer, audience, nonce, expiry and other protocol properties before trusting identity information.",
+    "offensiveRelevance": "Testing commonly examines redirect handling, nonce and state, token validation, signing algorithms, issuer confusion, discovery metadata and claim trust.",
+    "defensiveRelevance": "Validate ID tokens rigorously, restrict redirect URIs, use state and nonce correctly, prefer secure modern flows and avoid trusting unvalidated claims.",
+    "tags": [
+      "oidc",
+      "openid connect",
+      "id token",
+      "identity",
+      "claims"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-287",
+      "CWE-345"
+    ],
+    "owasp": [
+      "A07:2021 Identification and Authentication Failures"
+    ],
+    "relatedTerms": [
+      "oauth-2-0",
+      "mfa"
+    ]
+  },
+  {
+    "id": "sql-injection",
+    "term": "SQL Injection",
+    "full": "SQL Injection",
+    "categoryId": "web-security",
+    "category": "Web Security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A vulnerability where untrusted input changes the structure or meaning of a database query.",
+    "simpleExplanation": "SQL injection happens when application input is treated as part of SQL syntax instead of being handled only as data.",
+    "technicalExplanation": "The issue usually arises when dynamic SQL is built by concatenating untrusted input. Depending on the query context and database privileges, consequences can include unauthorised data access, modification, authentication bypass or broader database impact.",
+    "offensiveRelevance": "Application security testing checks whether parameters can influence query logic, while keeping testing within authorised scope and impact constraints.",
+    "defensiveRelevance": "Use parameterised queries or prepared statements, safe ORM APIs, least privilege database accounts, secure error handling and regression tests.",
+    "tags": [
+      "sqli",
+      "database",
+      "web security",
+      "injection"
+    ],
+    "mitre": [
+      "T1190"
+    ],
+    "cwe": [
+      "CWE-89"
+    ],
+    "owasp": [
+      "A03:2021 Injection"
+    ],
+    "relatedTerms": [
+      "vulnerability",
+      "exploit"
     ]
   }
 ]
