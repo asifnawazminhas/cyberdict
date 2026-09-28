@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Explore · CyberDict</title><link rel="stylesheet" href="/assets/css/style.css?v=1.1.0"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Explore · CyberDict</title><link rel="stylesheet" href="/assets/css/style.css?v=1.4.0"></head><body>
 <header class="topbar">
   <div class="wrap nav">
     <a class="brand" href="/"><div class="logo"><span>↗</span></div><div><h1>Cyber<b>Dict</b></h1><small>CYBERSECURITY KNOWLEDGE EXPLORER</small></div></a>
@@ -10,4 +10,4 @@
 <section class="section"><div class="wrap"><div class="section-head"><h3>ALL CURRENT TERMS</h3></div><div id="allTerms" class="terms-grid"></div></div></section></main>
 <footer class="footer"><div class="wrap row"><div><b style="color:#cfe2d5">Cyber<span style="color:#00ff66">Dict</span></b> · Community cybersecurity knowledge explorer</div><div>OPEN KNOWLEDGE · PRACTICAL SECURITY · COMMUNITY DRIVEN</div></div></footer>
 
-<script src="/assets/js/app.js?v=1.1.0"></script><script>(async()=>{await loadData();document.getElementById('allTerms').innerHTML=TERMS.map(t=>`<a class="term-card" href="${termUrl(t)}"><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p><div class="pills"><span class="pill green">${esc(t.category)}</span><span class="pill ${diffClass(t.difficulty)}">${esc(t.difficulty)}</span></div></a>`).join('');document.getElementById('heroSearch').addEventListener('input',()=>doSearch())})()</script></body></html>
+<script src="/assets/js/app.js?v=1.4.0"></script><script>(async()=>{await loadData();document.getElementById('allTerms').innerHTML=TERMS.map(t=>`<a class="term-card" href="${termUrl(t)}"><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p><div class="pills"><span class="pill green">${esc(t.category)}</span><span class="pill ${diffClass(t.difficulty)}">${esc(t.difficulty)}</span></div></a>`).join('');document.getElementById('heroSearch').addEventListener('input',()=>doSearch())})()</script></body></html>
