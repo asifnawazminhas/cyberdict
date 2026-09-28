@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1122" height="1402" viewBox="0 0 1122 1402">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#02080b"/><stop offset="1" stop-color="#06120f"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#ff5b5b" stop-opacity=".18"/><stop offset="1" stop-color="#ff5b5b" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#1d3b3a" stroke-opacity=".22"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+<style>
+.title{font:800 92px Arial,Helvetica,sans-serif;fill:#f3fbff;letter-spacing:1px} .sub{font:700 34px Arial,Helvetica,sans-serif;fill:#ff5b5b}
+.kicker{font:700 17px monospace;fill:#ff5b5b;letter-spacing:4px} .def{font:500 28px Arial,Helvetica,sans-serif;fill:#c8d7dd;line-height:1.3}
+.blockTitle{font:700 25px Arial,Helvetica,sans-serif;fill:#f3fbff} .num{font:700 22px monospace} .body{font:20px Arial,Helvetica,sans-serif;color:#b8c9cf;line-height:1.35}
+.flowText{font:700 20px Arial,Helvetica,sans-serif;fill:#eaf8fb} .flowNum{font:700 23px monospace;fill:#ff5b5b}
+.take{font:700 28px Arial,Helvetica,sans-serif;fill:#f5fbff} .takeBody{font:21px Arial,Helvetica,sans-serif;color:#c8d7dd;line-height:1.4}
+</style></defs>
+<rect width="1122" height="1402" fill="url(#bg)"/><rect width="1122" height="1402" fill="url(#grid)"/>
+<circle cx="880" cy="220" r="260" fill="url(#glow)"/><rect x="18" y="18" width="1086" height="1366" rx="30" fill="none" stroke="#ff5b5b" stroke-opacity=".55"/>
+<text x="56" y="70" class="kicker">SECURITY CONCEPT</text><text x="56" y="170" class="title">DCSync</text><text x="60" y="220" class="sub">Directory Replication Abuse</text>
+<rect x="56" y="268" width="1010" height="88" rx="18" fill="#071217" stroke="#ff5b5b" stroke-opacity=".5"/>
+<foreignObject x="82" y="288" width="958" height="52"><div xmlns="http://www.w3.org/1999/xhtml" class="def">An Active Directory technique that abuses replication rights to request credential data.</div></foreignObject>
+<g transform="translate(120,390)"><rect width="250" height="120" rx="18" fill="#0a1820" stroke="#b869ff"/><circle cx="52" cy="60" r="26" fill="#ff5b5b" fill-opacity=".18" stroke="#ff5b5b"/><text x="52" y="68" text-anchor="middle" class="flowNum">1</text><text x="135" y="66" text-anchor="middle" class="flowText">PRIVILEGED ACCOUNT</text></g><path d="M 370 450 H 411" stroke="#ff5b5b" stroke-width="5"/><path d="M 400 438 L 414 450 L 400 462" fill="none" stroke="#ff5b5b" stroke-width="5"/><g transform="translate(411,390)"><rect width="250" height="120" rx="18" fill="#0a1820" stroke="#b869ff"/><circle cx="52" cy="60" r="26" fill="#ff5b5b" fill-opacity=".18" stroke="#ff5b5b"/><text x="52" y="68" text-anchor="middle" class="flowNum">2</text><text x="135" y="66" text-anchor="middle" class="flowText">REPLICATION API</text></g><path d="M 661 450 H 702" stroke="#ff5b5b" stroke-width="5"/><path d="M 691 438 L 705 450 L 691 462" fill="none" stroke="#ff5b5b" stroke-width="5"/><g transform="translate(702,390)"><rect width="250" height="120" rx="18" fill="#0a1820" stroke="#b869ff"/><circle cx="52" cy="60" r="26" fill="#ff5b5b" fill-opacity=".18" stroke="#ff5b5b"/><text x="52" y="68" text-anchor="middle" class="flowNum">3</text><text x="135" y="66" text-anchor="middle" class="flowText">DOMAIN CONTROLLER</text></g>
+<g transform="translate(56,600)">
+<rect width="496" height="180" rx="20" fill="#08131a" stroke="#ff5b5b" stroke-opacity=".65"/>
+<rect x="18" y="18" width="62" height="42" rx="10" fill="#ff5b5b" fill-opacity=".14" stroke="#ff5b5b"/>
+<text x="49" y="47" text-anchor="middle" class="num" fill="#ff5b5b">01</text>
+<text x="96" y="48" class="blockTitle">PREREQUISITE</text>
+<foreignObject x="24" y="76" width="448" height="88"><div xmlns="http://www.w3.org/1999/xhtml" class="body">The account has directory replication privileges.</div></foreignObject>
+</g><g transform="translate(570,600)">
+<rect width="496" height="180" rx="20" fill="#08131a" stroke="#ff5b5b" stroke-opacity=".65"/>
+<rect x="18" y="18" width="62" height="42" rx="10" fill="#ff5b5b" fill-opacity=".14" stroke="#ff5b5b"/>
+<text x="49" y="47" text-anchor="middle" class="num" fill="#ff5b5b">02</text>
+<text x="96" y="48" class="blockTitle">REQUEST</text>
+<foreignObject x="24" y="76" width="448" height="88"><div xmlns="http://www.w3.org/1999/xhtml" class="body">Replication APIs are used to request directory secrets.</div></foreignObject>
+</g><g transform="translate(56,820)">
+<rect width="496" height="180" rx="20" fill="#08131a" stroke="#ff5b5b" stroke-opacity=".65"/>
+<rect x="18" y="18" width="62" height="42" rx="10" fill="#ff5b5b" fill-opacity=".14" stroke="#ff5b5b"/>
+<text x="49" y="47" text-anchor="middle" class="num" fill="#ff5b5b">03</text>
+<text x="96" y="48" class="blockTitle">CREDENTIAL DATA</text>
+<foreignObject x="24" y="76" width="448" height="88"><div xmlns="http://www.w3.org/1999/xhtml" class="body">Password-related material can be returned by the controller.</div></foreignObject>
+</g><g transform="translate(570,820)">
+<rect width="496" height="180" rx="20" fill="#08131a" stroke="#ff5b5b" stroke-opacity=".65"/>
+<rect x="18" y="18" width="62" height="42" rx="10" fill="#ff5b5b" fill-opacity=".14" stroke="#ff5b5b"/>
+<text x="49" y="47" text-anchor="middle" class="num" fill="#ff5b5b">04</text>
+<text x="96" y="48" class="blockTitle">IMPACT</text>
+<foreignObject x="24" y="76" width="448" height="88"><div xmlns="http://www.w3.org/1999/xhtml" class="body">Compromise can extend to highly privileged domain identities.</div></foreignObject>
+</g><g transform="translate(313,1040)">
+<rect width="496" height="180" rx="20" fill="#08131a" stroke="#ff5b5b" stroke-opacity=".65"/>
+<rect x="18" y="18" width="62" height="42" rx="10" fill="#ff5b5b" fill-opacity=".14" stroke="#ff5b5b"/>
+<text x="49" y="47" text-anchor="middle" class="num" fill="#ff5b5b">05</text>
+<text x="96" y="48" class="blockTitle">DEFENCE</text>
+<foreignObject x="24" y="76" width="448" height="88"><div xmlns="http://www.w3.org/1999/xhtml" class="body">Audit replication rights and monitor unusual replication activity.</div></foreignObject>
+</g>
+<g transform="translate(56,1255)"><rect width="1010" height="95" rx="18" fill="#071217" stroke="#b869ff" stroke-opacity=".75"/><text x="28" y="38" class="take">KEY TAKEAWAY</text><foreignObject x="280" y="20" width="700" height="62"><div xmlns="http://www.w3.org/1999/xhtml" class="takeBody">DCSync turns powerful replication permissions into credential access without reading NTDS.dit directly.</div></foreignObject></g>
+</svg>

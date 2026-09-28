@@ -22,7 +22,7 @@ function doSearch(inputId='heroSearch', resultsId='searchResults'){
 function renderHome(){
   const cats=document.getElementById('categories');
   if(cats) cats.innerHTML=CATEGORIES.slice(0,12).map(c=>`<a class="cat" href="${categoryUrl(c)}"><div class="ic">${c.icon}</div><div><b>${esc(c.name)}</b><span>${c.count} concepts</span></div></a>`).join('');
-  const essentialIds=['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa','oauth-2-0','oidc','kerberoasting','pass-the-hash','sql-injection'];
+  const essentialIds=['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa','oauth-2-0','oidc','kerberoasting','pass-the-hash','sql-injection','jwt','xss','ssrf','dcsync','golden-ticket'];
   const essentials=essentialIds.map(id=>TERMS.find(t=>t.id===id)).filter(Boolean);
   const featured=document.getElementById('featuredPrimary');
   if(featured && essentials[0]){
