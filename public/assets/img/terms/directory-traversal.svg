@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1122" height="1402" viewBox="0 0 1122 1402">
+    <defs>
+      <radialGradient id="g" cx="65%" cy="18%" r="70%"><stop offset="0" stop-color="#38bdf8" stop-opacity=".16"/><stop offset=".55" stop-color="#06100c" stop-opacity=".25"/><stop offset="1" stop-color="#020706"/></radialGradient>
+      <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#18332a" stroke-opacity=".28" stroke-width="1"/></pattern>
+    </defs>
+    <rect width="1122" height="1402" fill="#020706"/>
+    <rect width="1122" height="1402" fill="url(#g)"/>
+    <rect width="1122" height="1402" fill="url(#grid)"/>
+    <rect x="24" y="24" width="1074" height="1354" rx="28" fill="none" stroke="#38bdf8" stroke-opacity=".75" stroke-width="2"/>
+    <text x="70" y="90" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="6" font-weight="700" fill="#38bdf8">SECURITY CONCEPT</text>
+    <text x="70" y="190" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="900" fill="#f7fbf9">Directory Traversal</text>
+    <text x="70" y="245" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" fill="#38bdf8">File Path Boundary Escape</text>
+    <rect x="70" y="295" width="982" height="135" rx="22" fill="#091317" stroke="#38bdf8" stroke-opacity=".7" stroke-width="2"/>
+    <text x="105" y="343" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="3" font-weight="700" fill="#38bdf8">DEFINITION</text>
+    <text x="105" y="382" font-family="Arial,Helvetica,sans-serif" font-size="25" fill="#f4f8f6">
+      <tspan x="105" dy="0">Manipulated file paths escape the application&apos;s intended directory.</tspan>
+    </text>
+    
+        <rect x="70" y="485" width="982" height="125" rx="20" fill="#0b1518" stroke="#38bdf8" stroke-opacity=".65" stroke-width="2"/>
+        <circle cx="120" cy="547" r="31" fill="#38bdf8" fill-opacity=".15" stroke="#38bdf8" stroke-width="2"/>
+        <text x="120" y="557" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#38bdf8">01</text>
+        <text x="185" y="528" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#f4f8f6">INPUT</text>
+        <text x="185" y="563" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#b8c8c0"><tspan x="185" dy="0">A file or path parameter is supplied.</tspan></text>
+        
+        <rect x="70" y="635" width="982" height="125" rx="20" fill="#0b1518" stroke="#38bdf8" stroke-opacity=".65" stroke-width="2"/>
+        <circle cx="120" cy="697" r="31" fill="#38bdf8" fill-opacity=".15" stroke="#38bdf8" stroke-width="2"/>
+        <text x="120" y="707" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#38bdf8">02</text>
+        <text x="185" y="678" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#f4f8f6">PATH RESOLUTION</text>
+        <text x="185" y="713" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#b8c8c0"><tspan x="185" dy="0">The application resolves the supplied path.</tspan></text>
+        
+        <rect x="70" y="785" width="982" height="125" rx="20" fill="#0b1518" stroke="#38bdf8" stroke-opacity=".65" stroke-width="2"/>
+        <circle cx="120" cy="847" r="31" fill="#38bdf8" fill-opacity=".15" stroke="#38bdf8" stroke-width="2"/>
+        <text x="120" y="857" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#38bdf8">03</text>
+        <text x="185" y="828" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#f4f8f6">BOUNDARY ESCAPE</text>
+        <text x="185" y="863" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#b8c8c0"><tspan x="185" dy="0">Unsafe resolution can leave the allowed</tspan><tspan x="185" dy="28">directory.</tspan></text>
+        
+        <rect x="70" y="935" width="982" height="125" rx="20" fill="#0b1518" stroke="#38bdf8" stroke-opacity=".65" stroke-width="2"/>
+        <circle cx="120" cy="997" r="31" fill="#38bdf8" fill-opacity=".15" stroke="#38bdf8" stroke-width="2"/>
+        <text x="120" y="1007" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#38bdf8">04</text>
+        <text x="185" y="978" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#f4f8f6">IMPACT</text>
+        <text x="185" y="1013" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#b8c8c0"><tspan x="185" dy="0">Sensitive files or configuration may be exposed.</tspan></text>
+        
+        <rect x="70" y="1085" width="982" height="125" rx="20" fill="#0b1518" stroke="#38bdf8" stroke-opacity=".65" stroke-width="2"/>
+        <circle cx="120" cy="1147" r="31" fill="#38bdf8" fill-opacity=".15" stroke="#38bdf8" stroke-width="2"/>
+        <text x="120" y="1157" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#38bdf8">05</text>
+        <text x="185" y="1128" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#f4f8f6">DEFENCE</text>
+        <text x="185" y="1163" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#b8c8c0"><tspan x="185" dy="0">Use allowlists, canonical paths and least</tspan><tspan x="185" dy="28">privilege.</tspan></text>
+        
+    <rect x="70" y="1240" width="982" height="100" rx="20" fill="#0b1518" stroke="#38bdf8" stroke-width="2"/>
+    <text x="105" y="1280" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="800" letter-spacing="3" fill="#38bdf8">KEY TAKEAWAY</text>
+    <text x="105" y="1318" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#f4f8f6">Treat file paths as identifiers, not trusted filesystem instructions.</text>
+    </svg>

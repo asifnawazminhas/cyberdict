@@ -193,3 +193,16 @@ url('/assets/img/cyberdict-hero-reference.png') center/cover no-repeat;filter:sa
 @media(max-width:1180px){.essential-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.main-grid{grid-template-columns:1fr}.trending{display:grid;grid-template-columns:repeat(2,1fr)}}
 @media(max-width:860px){.essential-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.featured-primary{grid-template-columns:1fr}.featured-primary .visual.visual-preview img{max-height:260px}.lightbox-scroll{padding:40px 6px 20px}}
 @media(max-width:560px){.essential-grid{grid-template-columns:1fr}.trending{grid-template-columns:1fr}.visual-lightbox{padding:10px}.lightbox-close{top:10px;right:10px}}
+
+.category-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.category-browser-card{min-height:160px;border:1px solid var(--line);border-radius:14px;padding:20px;background:linear-gradient(180deg,#0a130f,#07100b);display:flex;gap:17px;transition:.18s;position:relative;overflow:hidden}
+.category-browser-card:after{content:"";position:absolute;width:150px;height:150px;right:-55px;bottom:-70px;background:radial-gradient(circle,rgba(0,255,102,.09),transparent 68%)}
+.category-browser-card:hover{border-color:#2b7c45;transform:translateY(-3px);box-shadow:var(--shadow)}
+.category-browser-icon{width:54px;height:54px;flex:0 0 54px;border:1px solid #1f6c3a;border-radius:13px;display:grid;place-items:center;color:var(--green);font-size:28px;background:#07170d}
+.category-browser-copy h3{margin:2px 0 8px;font-size:16px;color:#eef7f1}
+.category-browser-copy p{margin:0;color:#8ba092;font-size:11px;line-height:1.55}
+.category-browser-copy span{display:block;margin-top:14px;color:var(--green);font-size:10px;font-weight:700;letter-spacing:.04em}
+.category-detail-head{margin-bottom:14px}.back-categories{font-size:10px;color:var(--green);font-weight:700;letter-spacing:.05em}
+@media(max-width:1180px){.category-overview{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:860px){.category-overview{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.category-overview{grid-template-columns:1fr}}

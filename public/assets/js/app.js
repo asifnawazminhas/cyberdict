@@ -8,7 +8,7 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 function diffClass(d){return d==='Beginner'?'green':d==='Advanced'?'red':'yellow'}
 function termUrl(t){return `/term/?id=${encodeURIComponent(t.id)}`}
 function categoryUrl(c){return `/category/?id=${encodeURIComponent(c.id)}`}
-const RASTER_TERM_IDS=new Set(['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa','oauth-2-0','oidc','kerberoasting','pass-the-hash','sql-injection','jwt','xss','ssrf','dcsync','golden-ticket','prompt-injection','csrf','idor','xxe','ssti','command-injection']);
+const RASTER_TERM_IDS=new Set(['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa','oauth-2-0','oidc','kerberoasting','pass-the-hash','sql-injection','jwt','xss','ssrf','dcsync','golden-ticket','prompt-injection','csrf','idor','xxe','ssti','command-injection','directory-traversal','insecure-deserialization','api-security','ntlm-relay','ad-cs']);
 function visualUrl(t){const id=encodeURIComponent(t.id);return `/assets/img/terms/${id}.${RASTER_TERM_IDS.has(t.id)?'png':'svg'}` }
 function previewUrl(t){const id=encodeURIComponent(t.id);return RASTER_TERM_IDS.has(t.id)?`/assets/img/previews/${id}.jpg`:visualUrl(t)}
 function doSearch(inputId='heroSearch', resultsId='searchResults'){
@@ -22,7 +22,7 @@ function doSearch(inputId='heroSearch', resultsId='searchResults'){
 function renderHome(){
   const cats=document.getElementById('categories');
   if(cats) cats.innerHTML=CATEGORIES.slice(0,12).map(c=>`<a class="cat" href="${categoryUrl(c)}"><div class="ic">${c.icon}</div><div><b>${esc(c.name)}</b><span>${c.count} concepts</span></div></a>`).join('');
-  const essentialIds=['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa','oauth-2-0','oidc','kerberoasting','pass-the-hash','sql-injection','jwt','xss','ssrf','dcsync','golden-ticket','csrf','idor','xxe','ssti','command-injection','cve','dll-hijacking','wdac','mcp','rag'];
+  const essentialIds=['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa','oauth-2-0','oidc','kerberoasting','pass-the-hash','sql-injection','jwt','xss','ssrf','dcsync','golden-ticket','csrf','idor','xxe','ssti','command-injection','cve','dll-hijacking','wdac','mcp','rag','directory-traversal','insecure-deserialization','api-security','ntlm-relay','ad-cs'];
   const essentials=essentialIds.map(id=>TERMS.find(t=>t.id===id)).filter(Boolean);
   const featured=document.getElementById('featuredPrimary');
   if(featured && essentials[0]){
@@ -42,12 +42,42 @@ async function initHome(){
 }
 async function initCategory(){
   await loadData();
-  const id=new URLSearchParams(location.search).get('id')||CATEGORIES[0].id;
-  const c=CATEGORIES.find(x=>x.id===id)||CATEGORIES[0];
-  document.getElementById('categoryTitle').textContent=c.name;
-  document.getElementById('categoryDesc').textContent=c.description;
-  const list=TERMS.filter(t=>t.categoryId===c.id || t.category===c.name);
-  document.getElementById('categoryTerms').innerHTML=(list.length?list:TERMS.slice(0,6)).map(t=>`<a class="term-card" href="${termUrl(t)}"><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p><div class="pills"><span class="pill ${diffClass(t.difficulty)}">${esc(t.difficulty)}</span></div></a>`).join('');
+  const params=new URLSearchParams(location.search);
+  const id=params.get('id');
+  const overview=document.getElementById('categoryOverview');
+  const termsBox=document.getElementById('categoryTerms');
+  const title=document.getElementById('categoryTitle');
+  const desc=document.getElementById('categoryDesc');
+  const kicker=document.getElementById('categoryKicker');
+  const detailHead=document.getElementById('categoryDetailHead');
+
+  if(!id){
+    document.title='Categories · CyberDict';
+    if(termsBox) termsBox.innerHTML='';
+    if(detailHead) detailHead.hidden=true;
+    if(overview){
+      overview.style.display='grid';
+      overview.innerHTML=CATEGORIES.map(c=>{
+        const realCount=TERMS.filter(t=>t.categoryId===c.id || (!t.categoryId && t.category===c.name)).length;
+        return `<a class="category-browser-card" href="${categoryUrl(c)}">
+          <div class="category-browser-icon">${esc(c.icon||'◇')}</div>
+          <div class="category-browser-copy"><h3>${esc(c.name)}</h3><p>${esc(c.description)}</p><span>${realCount} ${realCount===1?'term':'terms'} →</span></div>
+        </a>`;
+      }).join('');
+    }
+    return;
+  }
+
+  const c=CATEGORIES.find(x=>x.id===id);
+  if(!c){location.href='/category/';return;}
+  document.title=`${c.name} · CyberDict`;
+  if(kicker) kicker.textContent='// KNOWLEDGE SECTOR';
+  title.textContent=c.name;
+  desc.textContent=c.description;
+  if(overview) overview.style.display='none';
+  if(detailHead) detailHead.hidden=false;
+  const list=TERMS.filter(t=>t.categoryId===c.id || (!t.categoryId && t.category===c.name));
+  termsBox.innerHTML=(list.length?list:[]).map(t=>`<a class="term-card" href="${termUrl(t)}"><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p><div class="pills"><span class="pill ${diffClass(t.difficulty)}">${esc(t.difficulty)}</span></div></a>`).join('');
 }
 async function initTerm(){
   await loadData();

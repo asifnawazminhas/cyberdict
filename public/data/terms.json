@@ -838,7 +838,8 @@
     "relatedTerms": [
       "mitre-attck",
       "ioc"
-    ]
+    ],
+    "categoryId": "threat-intelligence"
   },
   {
     "id": "ioc",
@@ -864,7 +865,8 @@
       "siem",
       "edr",
       "ttps"
-    ]
+    ],
+    "categoryId": "threat-intelligence"
   },
   {
     "id": "vulnerability",
@@ -889,7 +891,8 @@
     "relatedTerms": [
       "exploit",
       "cve"
-    ]
+    ],
+    "categoryId": "vulnerability-research"
   },
   {
     "id": "exploit",
@@ -914,7 +917,8 @@
     "relatedTerms": [
       "vulnerability",
       "privilege-escalation"
-    ]
+    ],
+    "categoryId": "vulnerability-research"
   },
   {
     "id": "incident-response",
@@ -979,7 +983,7 @@
     "category": "Authentication",
     "difficulty": "Beginner",
     "shortDefinition": "A security model that assumes no implicit trust and continuously verifies users, devices and access requests.",
-    "simpleExplanation": "Zero Trust follows the idea “never trust, always verify.” Access decisions consider identity, device health, context, least privilege and segmentation rather than trusting users simply because they are inside a network.",
+    "simpleExplanation": "Zero Trust follows the idea \u201cnever trust, always verify.\u201d Access decisions consider identity, device health, context, least privilege and segmentation rather than trusting users simply because they are inside a network.",
     "technicalExplanation": "Zero Trust architectures continuously evaluate identity, device posture, policy, resource sensitivity and risk. Common principles include strong authentication, least privilege, micro-segmentation, continuous monitoring and adaptive access controls.",
     "offensiveRelevance": "For security testers, Zero Trust changes attack paths by reducing implicit network trust and requiring repeated identity and device validation.",
     "defensiveRelevance": "Zero Trust can reduce lateral movement, excessive privilege and the impact of compromised accounts or devices.",
@@ -1162,7 +1166,7 @@
     "category": "Web Security",
     "difficulty": "Intermediate",
     "shortDefinition": "A web attack that tricks an authenticated browser into performing an unintended action on a trusted application.",
-    "simpleExplanation": "CSRF abuses the fact that a browser automatically sends a user’s existing authentication state with requests to a trusted site.",
+    "simpleExplanation": "CSRF abuses the fact that a browser automatically sends a user\u2019s existing authentication state with requests to a trusted site.",
     "technicalExplanation": "If a state-changing endpoint does not verify request intent, attacker-controlled content can cause a logged-in browser to submit a request the user did not mean to make.",
     "offensiveRelevance": "Testing checks whether sensitive state-changing requests require unpredictable anti-CSRF tokens, origin validation or step-up authentication.",
     "defensiveRelevance": "Use anti-CSRF tokens, SameSite cookies, origin checks and re-authentication for sensitive actions.",
@@ -1191,7 +1195,7 @@
     "categoryId": "web-security",
     "category": "Web Security",
     "difficulty": "Intermediate",
-    "shortDefinition": "An access-control weakness where changing an object reference can expose another user’s data or resources.",
+    "shortDefinition": "An access-control weakness where changing an object reference can expose another user\u2019s data or resources.",
     "simpleExplanation": "An application trusts an object identifier without checking whether the requester is allowed to access that object.",
     "technicalExplanation": "IDOR occurs when object-level authorisation is missing or inconsistent for identifiers in URLs, parameters, API bodies or path segments.",
     "offensiveRelevance": "Testing checks whether object references can be modified to access resources belonging to another user or role.",
@@ -1302,6 +1306,161 @@
     "relatedTerms": [
       "ssti",
       "exploit"
+    ]
+  },
+  {
+    "id": "directory-traversal",
+    "term": "Directory Traversal",
+    "full": "Directory Traversal",
+    "category": "Web Security",
+    "categoryId": "web-security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A file-access vulnerability where manipulated paths escape the intended directory.",
+    "simpleExplanation": "Directory traversal happens when an application accepts a file path and does not safely constrain it to the intended directory.",
+    "technicalExplanation": "Path traversal commonly involves path sequences or alternate encodings that cause path resolution outside an allowed base directory. Impact depends on application privileges and reachable files.",
+    "offensiveRelevance": "Application assessments verify whether file-related parameters can escape the intended directory boundary.",
+    "defensiveRelevance": "Use canonical path validation, allowlisted identifiers, fixed base directories, least privilege and avoid exposing raw filesystem paths.",
+    "tags": [
+      "path traversal",
+      "file access",
+      "web security",
+      "directory traversal"
+    ],
+    "mitre": [
+      "T1005"
+    ],
+    "cwe": [
+      "CWE-22"
+    ],
+    "owasp": [
+      "A01:2021 Broken Access Control"
+    ],
+    "relatedTerms": [
+      "lfi",
+      "vulnerability",
+      "command-injection"
+    ]
+  },
+  {
+    "id": "insecure-deserialization",
+    "term": "Insecure Deserialization",
+    "full": "Insecure Deserialization",
+    "category": "Web Security",
+    "categoryId": "web-security",
+    "difficulty": "Advanced",
+    "shortDefinition": "Unsafe handling of untrusted serialized data that can alter application behaviour or trigger unintended code paths.",
+    "simpleExplanation": "The application rebuilds objects from data it does not fully trust, allowing crafted data to influence object state or behaviour.",
+    "technicalExplanation": "Risk appears when untrusted serialized objects are deserialized with powerful object types, gadget chains or insufficient type restrictions.",
+    "offensiveRelevance": "Testing focuses on whether user-controlled serialized data reaches unsafe deserialization code paths.",
+    "defensiveRelevance": "Prefer simple data formats, restrict allowed types, validate integrity, avoid unsafe native deserialization and run with least privilege.",
+    "tags": [
+      "deserialization",
+      "serialization",
+      "web security",
+      "rce"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-502"
+    ],
+    "owasp": [
+      "A08:2021 Software and Data Integrity Failures"
+    ],
+    "relatedTerms": [
+      "vulnerability",
+      "exploit",
+      "command-injection"
+    ]
+  },
+  {
+    "id": "api-security",
+    "term": "API Security",
+    "full": "Application Programming Interface Security",
+    "category": "Web Security",
+    "categoryId": "web-security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "The practices and controls used to protect APIs from unauthorised access, abuse and data exposure.",
+    "simpleExplanation": "API security ensures that only the right identities can call the right endpoints with valid input and appropriate permissions.",
+    "technicalExplanation": "Core controls include strong authentication, object- and function-level authorisation, schema validation, rate limiting, secure defaults, logging and careful data exposure.",
+    "offensiveRelevance": "API assessments examine authentication, authorisation, object access, input validation, business logic and excessive data exposure.",
+    "defensiveRelevance": "Enforce server-side access control, validate schemas, use least privilege, rate limits, inventory endpoints and monitor abuse.",
+    "tags": [
+      "api",
+      "rest",
+      "graphql",
+      "authorization",
+      "web security"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-285",
+      "CWE-639"
+    ],
+    "owasp": [
+      "OWASP API Security Top 10"
+    ],
+    "relatedTerms": [
+      "idor",
+      "oauth-2-0",
+      "jwt"
+    ]
+  },
+  {
+    "id": "ntlm-relay",
+    "term": "NTLM Relay",
+    "full": "NTLM Relay",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Advanced",
+    "shortDefinition": "An authentication relay technique where captured NTLM authentication is forwarded to another service.",
+    "simpleExplanation": "Instead of cracking a password, an adversary forwards a victim's NTLM authentication exchange to a service that accepts it.",
+    "technicalExplanation": "Relay becomes possible when NTLM is accepted without protections such as SMB signing, LDAP signing or channel binding, and when the target service authorises the relayed identity.",
+    "offensiveRelevance": "AD assessments use relay scenarios to validate authentication hardening and service protections.",
+    "defensiveRelevance": "Require SMB and LDAP signing where applicable, enable channel binding, reduce NTLM use and monitor unusual authentication paths.",
+    "tags": [
+      "active directory",
+      "ntlm",
+      "relay",
+      "authentication"
+    ],
+    "mitre": [
+      "T1557.001"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "pass-the-hash",
+      "kerberoasting",
+      "ad-cs"
+    ]
+  },
+  {
+    "id": "ad-cs",
+    "term": "AD CS",
+    "full": "Active Directory Certificate Services",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Advanced",
+    "shortDefinition": "Microsoft's enterprise PKI role for issuing and managing certificates in Active Directory environments.",
+    "simpleExplanation": "AD CS lets organisations issue certificates for users, computers and services, but unsafe templates or permissions can create powerful identity risks.",
+    "technicalExplanation": "Security depends on certificate template configuration, enrollment permissions, issuance requirements, EKUs, CA protections and certificate-based authentication paths.",
+    "offensiveRelevance": "AD assessments review certificate templates and enrollment paths for misconfigurations that could allow unintended authentication or privilege escalation.",
+    "defensiveRelevance": "Harden templates, restrict enrollment rights, require appropriate approvals, protect CA systems and monitor certificate issuance.",
+    "tags": [
+      "active directory",
+      "pki",
+      "certificates",
+      "ad cs"
+    ],
+    "mitre": [
+      "T1649"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "ntlm-relay",
+      "kerberoasting",
+      "golden-ticket"
     ]
   }
 ]
