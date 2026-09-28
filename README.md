@@ -1,6 +1,6 @@
 # CyberDict
 
-Current release: **v1.2**
+Current release: **v1.3**
 
 CyberDict is a community cybersecurity dictionary and interactive knowledge explorer for offensive security, defensive security, purple teaming, identity, web security and AI security.
 

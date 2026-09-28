@@ -1153,5 +1153,155 @@
       "vulnerability",
       "exploit"
     ]
+  },
+  {
+    "id": "csrf",
+    "term": "CSRF",
+    "full": "Cross-Site Request Forgery",
+    "categoryId": "web-security",
+    "category": "Web Security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A web attack that tricks an authenticated browser into performing an unintended action on a trusted application.",
+    "simpleExplanation": "CSRF abuses the fact that a browser automatically sends a user’s existing authentication state with requests to a trusted site.",
+    "technicalExplanation": "If a state-changing endpoint does not verify request intent, attacker-controlled content can cause a logged-in browser to submit a request the user did not mean to make.",
+    "offensiveRelevance": "Testing checks whether sensitive state-changing requests require unpredictable anti-CSRF tokens, origin validation or step-up authentication.",
+    "defensiveRelevance": "Use anti-CSRF tokens, SameSite cookies, origin checks and re-authentication for sensitive actions.",
+    "tags": [
+      "csrf",
+      "web security",
+      "session",
+      "browser"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-352"
+    ],
+    "owasp": [
+      "A01:2021 Broken Access Control"
+    ],
+    "relatedTerms": [
+      "xss",
+      "authentication"
+    ]
+  },
+  {
+    "id": "idor",
+    "term": "IDOR",
+    "full": "Insecure Direct Object Reference",
+    "categoryId": "web-security",
+    "category": "Web Security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "An access-control weakness where changing an object reference can expose another user’s data or resources.",
+    "simpleExplanation": "An application trusts an object identifier without checking whether the requester is allowed to access that object.",
+    "technicalExplanation": "IDOR occurs when object-level authorisation is missing or inconsistent for identifiers in URLs, parameters, API bodies or path segments.",
+    "offensiveRelevance": "Testing checks whether object references can be modified to access resources belonging to another user or role.",
+    "defensiveRelevance": "Enforce server-side object-level authorisation for every request and every referenced resource.",
+    "tags": [
+      "idor",
+      "bola",
+      "access control",
+      "api security"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-639"
+    ],
+    "owasp": [
+      "A01:2021 Broken Access Control"
+    ],
+    "relatedTerms": [
+      "authorization",
+      "vulnerability"
+    ]
+  },
+  {
+    "id": "xxe",
+    "term": "XXE",
+    "full": "XML External Entity",
+    "categoryId": "web-security",
+    "category": "Web Security",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A vulnerability in unsafe XML parsing that can resolve external entities and expose local or internal resources.",
+    "simpleExplanation": "An unsafe XML parser may follow external references supplied by an attacker.",
+    "technicalExplanation": "XXE arises when a parser processes DTDs and external entities from untrusted XML. This can lead to local file disclosure, SSRF or denial of service depending on parser capabilities.",
+    "offensiveRelevance": "Testing checks parser behaviour with external entities and DTD processing while limiting impact.",
+    "defensiveRelevance": "Disable external entities and DTD processing, use hardened parsers and validate input formats.",
+    "tags": [
+      "xxe",
+      "xml",
+      "parser",
+      "ssrf"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-611"
+    ],
+    "owasp": [
+      "A05:2021 Security Misconfiguration"
+    ],
+    "relatedTerms": [
+      "ssrf",
+      "vulnerability"
+    ]
+  },
+  {
+    "id": "ssti",
+    "term": "SSTI",
+    "full": "Server-Side Template Injection",
+    "categoryId": "web-security",
+    "category": "Web Security",
+    "difficulty": "Advanced",
+    "shortDefinition": "A vulnerability where untrusted input is interpreted by a server-side template engine as template syntax.",
+    "simpleExplanation": "User-controlled text is evaluated by a template engine instead of being displayed only as data.",
+    "technicalExplanation": "SSTI occurs when templates or template expressions are built from untrusted input. Depending on the engine and sandbox, this can expose application objects or enable server-side execution.",
+    "offensiveRelevance": "Testing identifies template expression evaluation and determines the reachable template context without unnecessary impact.",
+    "defensiveRelevance": "Keep templates static, treat user input as data, use safe rendering APIs and restrict template engine capabilities.",
+    "tags": [
+      "ssti",
+      "template injection",
+      "web security",
+      "rce"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-1336"
+    ],
+    "owasp": [
+      "A03:2021 Injection"
+    ],
+    "relatedTerms": [
+      "command-injection",
+      "exploit"
+    ]
+  },
+  {
+    "id": "command-injection",
+    "term": "Command Injection",
+    "full": "Operating System Command Injection",
+    "categoryId": "web-security",
+    "category": "Web Security",
+    "difficulty": "Advanced",
+    "shortDefinition": "A vulnerability where untrusted input becomes part of an operating-system command executed by the server.",
+    "simpleExplanation": "The application passes attacker-controlled data into a shell or system command without safe separation.",
+    "technicalExplanation": "OS command injection typically occurs when applications concatenate untrusted input into shell commands or invoke unsafe process APIs.",
+    "offensiveRelevance": "Testing determines whether input can alter intended command execution while keeping validation controlled and non-destructive.",
+    "defensiveRelevance": "Avoid shell execution, use parameter-safe process APIs, strict allowlists, least privilege and monitoring.",
+    "tags": [
+      "command injection",
+      "os command injection",
+      "rce",
+      "injection"
+    ],
+    "mitre": [],
+    "cwe": [
+      "CWE-78"
+    ],
+    "owasp": [
+      "A03:2021 Injection"
+    ],
+    "relatedTerms": [
+      "ssti",
+      "exploit"
+    ]
   }
 ]
