@@ -21,9 +21,11 @@ function doSearch(inputId='heroSearch', resultsId='searchResults'){
 }
 function renderHome(){
   const cats=document.getElementById('categories');
-  if(cats) cats.innerHTML=CATEGORIES.slice(0,12).map(c=>`<a class="cat" href="${categoryUrl(c)}"><div class="ic">${c.icon}</div><div><b>${esc(c.name)}</b><span>${c.count} concepts</span></div></a>`).join('');
+  if(cats) cats.innerHTML=CATEGORIES.slice(0,12).map((c,i)=>`<a class="cat cat-${i%6}" href="${categoryUrl(c)}"><div class="ic">${c.icon}</div><div><b>${esc(c.name)}</b><span>${c.count} concepts</span></div><small>EXPLORE →</small></a>`).join('');
   const essentialIds=['ctf','c2','red-team','blue-team','purple-team','soc','siem','edr','osint','phishing','privilege-escalation','persistence','lateral-movement','pivoting','ttps','ioc','mitre-attck','vulnerability','exploit','incident-response','threat-hunting','zero-trust','ransomware','mfa','oauth-2-0','oidc','kerberoasting','pass-the-hash','sql-injection','jwt','xss','ssrf','dcsync','golden-ticket','csrf','idor','xxe','ssti','command-injection','cve','dll-hijacking','wdac','mcp','rag','directory-traversal','insecure-deserialization','api-security','ntlm-relay','ad-cs','applocker','amsi','kerberos-delegation','suid','kubernetes-misconfiguration','as-rep-roasting'];
   const essentials=essentialIds.map(id=>TERMS.find(t=>t.id===id)).filter(Boolean);
+  const statTerms=document.getElementById('statTerms'),statCategories=document.getElementById('statCategories'),statVisuals=document.getElementById('statVisuals'),consoleTermCount=document.getElementById('consoleTermCount');
+  if(statTerms)statTerms.textContent=TERMS.length;if(statCategories)statCategories.textContent=CATEGORIES.length;if(statVisuals)statVisuals.textContent=essentialIds.filter(id=>TERMS.some(t=>t.id===id)).length;if(consoleTermCount)consoleTermCount.textContent=`${TERMS.length} terms`;
   const featured=document.getElementById('featuredPrimary');
   if(featured && essentials[0]){
     const t=essentials[4] || essentials[0];

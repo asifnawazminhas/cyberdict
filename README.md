@@ -1,16 +1,19 @@
 # CyberDict
 
-Current release: **v1.8**
+Current release: **v1.9**
 
 CyberDict is a community cybersecurity dictionary and visual knowledge explorer.
 
-## Highlights
+## v1.9 focus
 
-- Searchable terminology
-- Visual explainers
-- Category browsing
-- Guided learning paths
-- Cloudflare Workers static deployment
+- Premium UI and UX refinement across the site
+- Existing visual explainer images preserved unchanged
+- Refined homepage hierarchy and live knowledge statistics
+- More polished category and essential-term cards
+- Dictionary filters for category and difficulty
+- Improved term-page reading layout and sticky context panel
+- More visual guided learning paths
+- Improved responsive behaviour
 
 ## Deploy
 
