@@ -137,7 +137,7 @@
     "id": "cve",
     "term": "CVE",
     "category": "Vulnerability Research",
-    "categoryId": "web-security",
+    "categoryId": "vulnerability-research",
     "difficulty": "Beginner",
     "shortDefinition": "Common Vulnerabilities and Exposures is a standardised identifier system for publicly disclosed security vulnerabilities.",
     "simpleExplanation": "A CVE number gives a public vulnerability a common name that vendors, researchers and defenders can reference.",
@@ -1661,5 +1661,34 @@
       "ad-cs"
     ],
     "full": "DCSync"
+  },
+  {
+    "id": "as-rep-roasting",
+    "term": "AS-REP Roasting",
+    "full": "AS-REP Roasting",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Advanced",
+    "shortDefinition": "A Kerberos technique that targets accounts configured without pre-authentication and obtains material that can be tested offline.",
+    "simpleExplanation": "If Kerberos pre-authentication is disabled for an account, an AS-REP response can be requested and analysed offline without first knowing the account password.",
+    "technicalExplanation": "The technique relies on user accounts with Kerberos pre-authentication disabled. The KDC returns an AS-REP containing encrypted material derived from the user password, which can be subjected to offline password auditing.",
+    "offensiveRelevance": "Active Directory assessments use this to identify weak passwords on accounts that do not require Kerberos pre-authentication.",
+    "defensiveRelevance": "Require Kerberos pre-authentication, use strong passwords, regularly review account flags and monitor unusual authentication requests.",
+    "tags": [
+      "kerberos",
+      "active directory",
+      "as-rep roasting",
+      "pre-authentication"
+    ],
+    "mitre": [
+      "T1558.004"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "kerberoasting",
+      "dcsync",
+      "kerberos-delegation"
+    ]
   }
 ]

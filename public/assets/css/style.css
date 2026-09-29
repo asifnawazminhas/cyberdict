@@ -206,3 +206,5 @@ url('/assets/img/cyberdict-hero-reference.png') center/cover no-repeat;filter:sa
 @media(max-width:1180px){.category-overview{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:860px){.category-overview{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.category-overview{grid-template-columns:1fr}}
+
+.learning-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.learning-path{border:1px solid var(--line);border-radius:16px;padding:24px;background:linear-gradient(180deg,#0b1511,#07100c);min-height:200px;transition:.18s}.learning-path:hover{transform:translateY(-3px);border-color:#2b7c45;box-shadow:var(--shadow)}.learning-path span{font-size:10px;letter-spacing:.16em;color:var(--green);font-weight:800}.learning-path h3{font-size:23px;margin:12px 0;color:#f3f8f4}.learning-path p{font-size:12px;line-height:1.7;color:#9aafa0}.learning-path b{display:block;margin-top:20px;color:var(--green);font-size:11px}@media(max-width:760px){.learning-paths{grid-template-columns:1fr}}

@@ -3,14 +3,14 @@
     "id": "web-security",
     "name": "Web Security",
     "icon": "◎",
-    "count": 12,
+    "count": 11,
     "description": "Web application vulnerabilities, browser security, APIs and modern application attack surfaces."
   },
   {
     "id": "active-directory",
     "name": "Active Directory",
     "icon": "⌘",
-    "count": 6,
+    "count": 7,
     "description": "Kerberos, NTLM, delegation, AD CS, trust relationships and enterprise identity attacks."
   },
   {
@@ -94,7 +94,7 @@
     "id": "vulnerability-research",
     "name": "Vulnerability Research",
     "icon": "⌕",
-    "count": 2,
+    "count": 3,
     "description": "Vulnerability discovery, CVEs, exploitation concepts, analysis and responsible disclosure."
   },
   {
