@@ -1462,5 +1462,150 @@
       "kerberoasting",
       "golden-ticket"
     ]
+  },
+  {
+    "id": "applocker",
+    "term": "AppLocker",
+    "full": "Microsoft AppLocker",
+    "category": "Security Controls",
+    "categoryId": "security-controls",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A Windows application control technology that uses rules to allow or block executables, scripts, installers and packaged apps.",
+    "simpleExplanation": "AppLocker helps organisations control which applications and scripts users are allowed to run on Windows systems.",
+    "technicalExplanation": "AppLocker evaluates rule collections such as Executable, Script, Windows Installer and Packaged App rules using publisher, path and file hash conditions, with enforcement or audit modes.",
+    "offensiveRelevance": "Security assessments review effective AppLocker policy, trusted paths and rule gaps to understand the execution boundary.",
+    "defensiveRelevance": "Use least privilege, minimise writable trusted paths, prefer publisher or hash rules where appropriate, audit changes and monitor blocked execution events.",
+    "tags": [
+      "Windows",
+      "application control",
+      "allowlisting",
+      "AppLocker"
+    ],
+    "mitre": [
+      "M1038"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "wdac",
+      "amsi"
+    ]
+  },
+  {
+    "id": "amsi",
+    "term": "AMSI",
+    "full": "Antimalware Scan Interface",
+    "category": "Security Controls",
+    "categoryId": "security-controls",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A Windows interface that lets applications submit script and content data to antimalware products for inspection.",
+    "simpleExplanation": "AMSI gives security products visibility into content handled by applications such as PowerShell and scripting hosts before or during execution.",
+    "technicalExplanation": "AMSI exposes content scanning APIs that supported applications call so registered antimalware providers can inspect script blocks or other dynamic content and return a verdict.",
+    "offensiveRelevance": "Assessments validate whether script content is visible to endpoint security controls and how detection layers interact.",
+    "defensiveRelevance": "Keep the antimalware provider healthy, monitor AMSI-related detections, combine with application control and use constrained administrative workflows.",
+    "tags": [
+      "Windows",
+      "PowerShell",
+      "antimalware",
+      "AMSI"
+    ],
+    "mitre": [
+      "M1049"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "applocker",
+      "wdac",
+      "edr"
+    ]
+  },
+  {
+    "id": "kerberos-delegation",
+    "term": "Kerberos Delegation",
+    "full": "Kerberos Delegation",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Advanced",
+    "shortDefinition": "An Active Directory capability that allows a trusted service to access another service on behalf of a user.",
+    "simpleExplanation": "Delegation lets one service represent a user to another service when that behaviour is explicitly configured.",
+    "technicalExplanation": "Active Directory supports unconstrained, constrained and resource-based constrained delegation. Security depends on SPN configuration, delegation rights, protocol transition settings and protected accounts.",
+    "offensiveRelevance": "AD assessments enumerate delegation relationships because over-permissive configurations can create privilege and lateral movement paths.",
+    "defensiveRelevance": "Prefer constrained models, restrict delegation rights, protect privileged accounts, review SPNs and monitor unusual service-ticket activity.",
+    "tags": [
+      "Active Directory",
+      "Kerberos",
+      "delegation",
+      "SPN"
+    ],
+    "mitre": [
+      "T1550.003"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "kerberoasting",
+      "golden-ticket",
+      "ntlm-relay"
+    ]
+  },
+  {
+    "id": "suid",
+    "term": "SUID",
+    "full": "Set User ID",
+    "category": "Linux",
+    "categoryId": "linux",
+    "difficulty": "Intermediate",
+    "shortDefinition": "A Unix permission bit that causes an executable to run with the effective user ID of its owner.",
+    "simpleExplanation": "SUID is often used for legitimate administrative helpers, but unsafe SUID programs can create privilege-escalation risk.",
+    "technicalExplanation": "When the SUID bit is set on an executable, the process effective UID becomes the file owner during execution. Risk depends on ownership, program behaviour, environment handling and input validation.",
+    "offensiveRelevance": "Linux assessments inventory SUID binaries and review unusual or writable programs for privilege-boundary weaknesses.",
+    "defensiveRelevance": "Remove unnecessary SUID bits, keep privileged binaries patched, restrict writable locations and monitor permission changes.",
+    "tags": [
+      "Linux",
+      "permissions",
+      "privilege escalation",
+      "SUID"
+    ],
+    "mitre": [
+      "T1548.001"
+    ],
+    "cwe": [
+      "CWE-250"
+    ],
+    "owasp": [],
+    "relatedTerms": [
+      "privilege-escalation"
+    ]
+  },
+  {
+    "id": "kubernetes-misconfiguration",
+    "term": "Kubernetes Misconfiguration",
+    "full": "Kubernetes Misconfiguration",
+    "category": "Cloud Security",
+    "categoryId": "cloud-security",
+    "difficulty": "Advanced",
+    "shortDefinition": "Insecure Kubernetes settings or permissions that expose workloads, credentials or cluster control paths.",
+    "simpleExplanation": "Kubernetes becomes risky when access, networking, secrets or workload policies are configured too broadly.",
+    "technicalExplanation": "Common risk areas include exposed APIs, excessive RBAC, privileged containers, weak network policies, insecure secrets handling and permissive admission or workload settings.",
+    "offensiveRelevance": "Cloud assessments review cluster exposure, RBAC, service accounts, workloads, network boundaries and secret access for unintended paths.",
+    "defensiveRelevance": "Apply least-privilege RBAC, restrict API access, use network policies, harden workloads, protect secrets and enforce admission controls.",
+    "tags": [
+      "Kubernetes",
+      "cloud",
+      "RBAC",
+      "containers",
+      "misconfiguration"
+    ],
+    "mitre": [
+      "T1610"
+    ],
+    "cwe": [
+      "CWE-16"
+    ],
+    "owasp": [],
+    "relatedTerms": [
+      "api-security"
+    ]
   }
 ]
