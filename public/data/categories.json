@@ -2,126 +2,126 @@
   {
     "id": "web-security",
     "name": "Web Security",
-    "icon": "\u25ce",
+    "icon": "◎",
     "count": 12,
     "description": "Web application vulnerabilities, browser security, APIs and modern application attack surfaces."
   },
   {
     "id": "active-directory",
     "name": "Active Directory",
-    "icon": "\u2318",
-    "count": 5,
+    "icon": "⌘",
+    "count": 6,
     "description": "Kerberos, NTLM, delegation, AD CS, trust relationships and enterprise identity attacks."
   },
   {
     "id": "windows",
     "name": "Windows",
-    "icon": "\u229e",
-    "count": 3,
+    "icon": "⊞",
+    "count": 2,
     "description": "Windows internals, security controls, credentials, privilege escalation and post-exploitation."
   },
   {
     "id": "linux",
     "name": "Linux",
-    "icon": "\u25d2",
-    "count": 0,
+    "icon": "◒",
+    "count": 1,
     "description": "Linux permissions, services, privilege escalation, persistence and system security concepts."
   },
   {
     "id": "networking",
     "name": "Networking",
-    "icon": "\u2301",
+    "icon": "⌁",
     "count": 0,
     "description": "Protocols, routing, segmentation, traffic analysis and network security fundamentals."
   },
   {
     "id": "authentication",
     "name": "Authentication",
-    "icon": "\u25c9",
+    "icon": "◉",
     "count": 7,
     "description": "Identity, sessions, OAuth, OIDC, MFA, tokens and authentication security."
   },
   {
     "id": "cryptography",
     "name": "Cryptography",
-    "icon": "\u25a3",
+    "icon": "▣",
     "count": 0,
     "description": "Encryption, hashing, signatures, PKI, certificates and cryptographic security."
   },
   {
     "id": "red-teaming",
     "name": "Red Teaming",
-    "icon": "\u2620",
+    "icon": "☠",
     "count": 8,
     "description": "Adversary simulation, C2, persistence, lateral movement, OPSEC and attack-path validation."
   },
   {
     "id": "blue-teaming",
     "name": "Blue Teaming",
-    "icon": "\u2b21",
+    "icon": "⬡",
     "count": 8,
     "description": "Detection, response, telemetry, endpoint controls, logging and security operations."
   },
   {
     "id": "purple-teaming",
     "name": "Purple Teaming",
-    "icon": "\u25cc",
+    "icon": "◌",
     "count": 2,
     "description": "Collaborative offensive and defensive validation, knowledge transfer and detection improvement."
   },
   {
     "id": "cloud-security",
     "name": "Cloud Security",
-    "icon": "\u2601",
-    "count": 0,
+    "icon": "☁",
+    "count": 1,
     "description": "Cloud identity, IAM, storage, workloads, containers and cloud-native attack surfaces."
   },
   {
     "id": "ai-security",
     "name": "AI Security",
-    "icon": "\u25c7",
+    "icon": "◇",
     "count": 3,
     "description": "LLM security, prompt injection, RAG, MCP, AI agents and adversarial machine learning."
   },
   {
     "id": "threat-intelligence",
     "name": "Threat Intelligence",
-    "icon": "\u25c8",
+    "icon": "◈",
     "count": 2,
     "description": "Threat actors, indicators, TTPs, malware analysis and intelligence concepts."
   },
   {
     "id": "vulnerability-research",
     "name": "Vulnerability Research",
-    "icon": "\u2315",
+    "icon": "⌕",
     "count": 2,
     "description": "Vulnerability discovery, CVEs, exploitation concepts, analysis and responsible disclosure."
   },
   {
     "id": "security-controls",
     "name": "Security Controls",
-    "icon": "\u2699",
-    "count": 0,
+    "icon": "⚙",
+    "count": 4,
     "description": "Application control, hardening, defensive technologies, policy and prevention mechanisms."
   },
   {
     "id": "tools",
     "name": "Tools",
-    "icon": "\u2301",
+    "icon": "⌁",
     "count": 0,
     "description": "Security tools, frameworks, utilities and supporting technologies."
   },
   {
     "id": "protocols",
     "name": "Protocols",
-    "icon": "\u2318",
+    "icon": "⌘",
     "count": 0,
     "description": "Network, identity and application protocols and their security properties."
   },
   {
     "id": "frameworks",
     "name": "Frameworks",
-    "icon": "\u25ce",
+    "icon": "◎",
     "count": 0,
     "description": "Security frameworks, attack models, knowledge bases and structured methodologies."
   }

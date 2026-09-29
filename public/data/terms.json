@@ -1,33 +1,5 @@
 [
   {
-    "id": "kerberoasting",
-    "term": "Kerberoasting",
-    "category": "Active Directory",
-    "categoryId": "active-directory",
-    "difficulty": "Intermediate",
-    "shortDefinition": "A technique that targets Kerberos service tickets associated with service accounts so password material can be attacked offline.",
-    "simpleExplanation": "An attacker requests a Kerberos service ticket for an account that runs a service. The ticket can then be analysed offline in an attempt to recover the service account password.",
-    "technicalExplanation": "Kerberoasting abuses the fact that domain users can request service tickets for SPN-backed service accounts. The encrypted portion of the ticket is derived from the service account secret, enabling offline password guessing without repeatedly contacting the domain controller.",
-    "offensiveRelevance": "Used during Active Directory assessments to identify weak service-account passwords and paths to privilege escalation.",
-    "defensiveRelevance": "Use strong managed service-account passwords, prefer gMSA where possible, monitor unusual service-ticket activity and reduce unnecessary service-account privilege.",
-    "tags": [
-      "Kerberos",
-      "Service Accounts",
-      "Credential Access"
-    ],
-    "mitre": [
-      "T1558.003"
-    ],
-    "cwe": [],
-    "owasp": [],
-    "relatedTerms": [
-      "kerberos",
-      "golden-ticket",
-      "dcsync",
-      "pass-the-hash"
-    ]
-  },
-  {
     "id": "ssrf",
     "term": "SSRF",
     "category": "Web Security",
@@ -347,32 +319,6 @@
     ]
   },
   {
-    "id": "dcsync",
-    "term": "DCSync",
-    "category": "Active Directory",
-    "categoryId": "active-directory",
-    "difficulty": "Advanced",
-    "shortDefinition": "An Active Directory technique that abuses directory replication rights to request credential data from a domain controller.",
-    "simpleExplanation": "An account with powerful replication permissions can ask a domain controller for password-related data as if it were another domain controller.",
-    "technicalExplanation": "DCSync abuses directory replication APIs and requires specific replication rights. It is powerful because it can expose credential material without reading the domain-controller database directly.",
-    "offensiveRelevance": "Used to validate highly privileged directory permissions and compromise paths.",
-    "defensiveRelevance": "Audit replication rights, minimise privileged groups and monitor unusual replication requests.",
-    "tags": [
-      "Active Directory",
-      "Replication",
-      "Credential Access"
-    ],
-    "mitre": [
-      "T1003.006"
-    ],
-    "cwe": [],
-    "owasp": [],
-    "relatedTerms": [
-      "kerberoasting",
-      "golden-ticket"
-    ]
-  },
-  {
     "id": "golden-ticket",
     "term": "Golden Ticket",
     "category": "Active Directory",
@@ -396,30 +342,6 @@
     "relatedTerms": [
       "dcsync",
       "kerberoasting"
-    ]
-  },
-  {
-    "id": "wdac",
-    "term": "WDAC",
-    "category": "Windows",
-    "categoryId": "windows",
-    "difficulty": "Intermediate",
-    "shortDefinition": "Windows Defender Application Control is a Windows application-control technology used to restrict which code can run.",
-    "simpleExplanation": "WDAC lets organisations define which applications, scripts and code are trusted to execute.",
-    "technicalExplanation": "WDAC policies can enforce signer, hash, path and reputation-based trust decisions and can be combined with other Windows security controls.",
-    "offensiveRelevance": "Assessment focuses on whether execution controls match intended security policy and whether trusted paths introduce gaps.",
-    "defensiveRelevance": "Use strong allow rules, minimise writable trusted paths and validate effective policy.",
-    "tags": [
-      "Windows",
-      "Application Control",
-      "Hardening"
-    ],
-    "mitre": [],
-    "cwe": [],
-    "owasp": [],
-    "relatedTerms": [
-      "applocker",
-      "dll-hijacking"
     ]
   },
   {
@@ -547,7 +469,8 @@
       "red-team",
       "blue-team",
       "exploit"
-    ]
+    ],
+    "categoryId": "learning"
   },
   {
     "id": "c2",
@@ -575,7 +498,8 @@
       "red-team",
       "edr",
       "ioc"
-    ]
+    ],
+    "categoryId": "red-teaming"
   },
   {
     "id": "red-team",
@@ -601,7 +525,8 @@
       "blue-team",
       "purple-team",
       "c2"
-    ]
+    ],
+    "categoryId": "red-teaming"
   },
   {
     "id": "blue-team",
@@ -629,7 +554,8 @@
       "soc",
       "siem",
       "edr"
-    ]
+    ],
+    "categoryId": "blue-teaming"
   },
   {
     "id": "purple-team",
@@ -655,7 +581,8 @@
       "red-team",
       "blue-team",
       "mitre-attck"
-    ]
+    ],
+    "categoryId": "purple-teaming"
   },
   {
     "id": "soc",
@@ -681,7 +608,8 @@
       "siem",
       "edr",
       "incident-response"
-    ]
+    ],
+    "categoryId": "blue-teaming"
   },
   {
     "id": "siem",
@@ -707,7 +635,8 @@
       "soc",
       "edr",
       "ioc"
-    ]
+    ],
+    "categoryId": "blue-teaming"
   },
   {
     "id": "osint",
@@ -734,7 +663,8 @@
     "relatedTerms": [
       "red-team",
       "ioc"
-    ]
+    ],
+    "categoryId": "red-teaming"
   },
   {
     "id": "phishing",
@@ -761,7 +691,8 @@
     "relatedTerms": [
       "red-team",
       "incident-response"
-    ]
+    ],
+    "categoryId": "red-teaming"
   },
   {
     "id": "persistence",
@@ -788,7 +719,8 @@
     "relatedTerms": [
       "privilege-escalation",
       "lateral-movement"
-    ]
+    ],
+    "categoryId": "red-teaming"
   },
   {
     "id": "pivoting",
@@ -813,7 +745,8 @@
     "relatedTerms": [
       "lateral-movement",
       "c2"
-    ]
+    ],
+    "categoryId": "red-teaming"
   },
   {
     "id": "ttps",
@@ -944,7 +877,8 @@
       "soc",
       "siem",
       "edr"
-    ]
+    ],
+    "categoryId": "blue-teaming"
   },
   {
     "id": "threat-hunting",
@@ -983,7 +917,7 @@
     "category": "Authentication",
     "difficulty": "Beginner",
     "shortDefinition": "A security model that assumes no implicit trust and continuously verifies users, devices and access requests.",
-    "simpleExplanation": "Zero Trust follows the idea \u201cnever trust, always verify.\u201d Access decisions consider identity, device health, context, least privilege and segmentation rather than trusting users simply because they are inside a network.",
+    "simpleExplanation": "Zero Trust follows the idea “never trust, always verify.” Access decisions consider identity, device health, context, least privilege and segmentation rather than trusting users simply because they are inside a network.",
     "technicalExplanation": "Zero Trust architectures continuously evaluate identity, device posture, policy, resource sensitivity and risk. Common principles include strong authentication, least privilege, micro-segmentation, continuous monitoring and adaptive access controls.",
     "offensiveRelevance": "For security testers, Zero Trust changes attack paths by reducing implicit network trust and requiring repeated identity and device validation.",
     "defensiveRelevance": "Zero Trust can reduce lateral movement, excessive privilege and the impact of compromised accounts or devices.",
@@ -1166,7 +1100,7 @@
     "category": "Web Security",
     "difficulty": "Intermediate",
     "shortDefinition": "A web attack that tricks an authenticated browser into performing an unintended action on a trusted application.",
-    "simpleExplanation": "CSRF abuses the fact that a browser automatically sends a user\u2019s existing authentication state with requests to a trusted site.",
+    "simpleExplanation": "CSRF abuses the fact that a browser automatically sends a user’s existing authentication state with requests to a trusted site.",
     "technicalExplanation": "If a state-changing endpoint does not verify request intent, attacker-controlled content can cause a logged-in browser to submit a request the user did not mean to make.",
     "offensiveRelevance": "Testing checks whether sensitive state-changing requests require unpredictable anti-CSRF tokens, origin validation or step-up authentication.",
     "defensiveRelevance": "Use anti-CSRF tokens, SameSite cookies, origin checks and re-authentication for sensitive actions.",
@@ -1195,7 +1129,7 @@
     "categoryId": "web-security",
     "category": "Web Security",
     "difficulty": "Intermediate",
-    "shortDefinition": "An access-control weakness where changing an object reference can expose another user\u2019s data or resources.",
+    "shortDefinition": "An access-control weakness where changing an object reference can expose another user’s data or resources.",
     "simpleExplanation": "An application trusts an object identifier without checking whether the requester is allowed to access that object.",
     "technicalExplanation": "IDOR occurs when object-level authorisation is missing or inconsistent for identifiers in URLs, parameters, API bodies or path segments.",
     "offensiveRelevance": "Testing checks whether object references can be modified to access resources belonging to another user or role.",
@@ -1607,5 +1541,125 @@
     "relatedTerms": [
       "api-security"
     ]
+  },
+  {
+    "id": "wdac",
+    "term": "WDAC",
+    "category": "Security Controls",
+    "categoryId": "security-controls",
+    "difficulty": "Advanced",
+    "shortDefinition": "A Windows application control technology that restricts which code can run by enforcing trusted policies.",
+    "simpleExplanation": "WDAC allows only approved and trusted code to run on Windows, helping block untrusted scripts, binaries and tools.",
+    "technicalExplanation": "WDAC uses policy rules based on signers, file attributes, hashes, paths and trust decisions to allow or deny code execution. It is commonly used to harden endpoints and reduce post-exploitation options.",
+    "offensiveRelevance": "Red-team and purple-team exercises review how WDAC policies affect script execution, LOLBIN use, tool loading and bypass resistance on hardened Windows systems.",
+    "defensiveRelevance": "Design policies carefully, use audit mode before enforcement, prefer trusted signer rules where appropriate and review policy events to understand blocked activity.",
+    "tags": [
+      "wdac",
+      "windows defender application control",
+      "application control",
+      "allowlisting",
+      "windows"
+    ],
+    "mitre": [
+      "T1562"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "applocker",
+      "amsi",
+      "constrained-language-mode"
+    ],
+    "full": "Windows Defender Application Control"
+  },
+  {
+    "id": "constrained-language-mode",
+    "term": "Constrained Language Mode",
+    "full": "PowerShell Constrained Language Mode",
+    "category": "Security Controls",
+    "categoryId": "security-controls",
+    "difficulty": "Advanced",
+    "shortDefinition": "A PowerShell mode that limits access to advanced language features and .NET capabilities to reduce script abuse.",
+    "simpleExplanation": "Constrained Language Mode keeps basic PowerShell functionality available while blocking advanced features that are often abused in post-exploitation.",
+    "technicalExplanation": "PowerShell enforces language restrictions at runtime, limiting access to Add-Type, arbitrary .NET classes, COM automation and other advanced features. It is often combined with WDAC or AppLocker and supports stronger endpoint hardening.",
+    "offensiveRelevance": "It changes tradecraft by breaking many .NET-dependent or reflection-based techniques and encourages more careful tool testing on managed Windows systems.",
+    "defensiveRelevance": "Use it together with application control, AMSI, logging and strong policy deployment to reduce script-based abuse while preserving core administration tasks.",
+    "mitre": [
+      "T1059.001"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "wdac",
+      "applocker",
+      "amsi"
+    ],
+    "tags": [
+      "powershell",
+      "clm",
+      "constrained language mode",
+      "windows",
+      "hardening"
+    ]
+  },
+  {
+    "id": "kerberoasting",
+    "term": "Kerberoasting",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Advanced",
+    "shortDefinition": "An attack where service tickets are requested for service accounts and then cracked offline to recover passwords.",
+    "simpleExplanation": "Kerberoasting targets service accounts by requesting Kerberos service tickets and trying to crack them offline to recover the account password.",
+    "technicalExplanation": "An operator requests a TGS ticket for a service account with an SPN. Because the ticket is encrypted using material derived from the service account password, weak passwords can sometimes be recovered offline with cracking tools.",
+    "offensiveRelevance": "A common Active Directory assessment technique used to identify weak service-account passwords and privileged service accounts within authorised scope.",
+    "defensiveRelevance": "Use strong unique passwords or gMSA for service accounts, reduce unnecessary SPNs and monitor for unusual ticket requests such as Event ID 4769.",
+    "tags": [
+      "kerberoasting",
+      "kerberos",
+      "spn",
+      "active directory",
+      "service account"
+    ],
+    "mitre": [
+      "T1558.003"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "kerberos-delegation",
+      "dcsync",
+      "ad-cs"
+    ],
+    "full": "Kerberoasting"
+  },
+  {
+    "id": "dcsync",
+    "term": "DCSync",
+    "category": "Active Directory",
+    "categoryId": "active-directory",
+    "difficulty": "Advanced",
+    "shortDefinition": "A technique that abuses directory replication privileges to request password data from a domain controller.",
+    "simpleExplanation": "DCSync lets an attacker with the right replication permissions ask a domain controller for credential material such as password hashes.",
+    "technicalExplanation": "By using directory replication privileges such as Replicating Directory Changes, an attacker can impersonate legitimate replication behaviour and request sensitive directory data, including password hashes, Kerberos keys and account secrets.",
+    "offensiveRelevance": "An important Active Directory technique for understanding the impact of privileged rights and potential paths to domain compromise during authorised assessments.",
+    "defensiveRelevance": "Restrict replication rights, review delegated permissions, protect Tier 0 assets and monitor for unusual replication activity associated with DCSync abuse.",
+    "tags": [
+      "dcsync",
+      "active directory",
+      "replication",
+      "credentials",
+      "domain controller"
+    ],
+    "mitre": [
+      "T1003.006"
+    ],
+    "cwe": [],
+    "owasp": [],
+    "relatedTerms": [
+      "kerberoasting",
+      "golden-ticket",
+      "ad-cs"
+    ],
+    "full": "DCSync"
   }
 ]
