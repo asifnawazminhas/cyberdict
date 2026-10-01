@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Explore · CyberDict</title><link rel="stylesheet" href="/assets/css/style.css?v=1.9.0"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Explore · CyberDict</title><link rel="stylesheet" href="/assets/css/style.css?v=2.0.0"></head><body>
 <header class="topbar">
   <div class="wrap nav">
     <a class="brand" href="/"><div class="logo"><span>↗</span></div><div><h1>Cyber<b>Dict</b></h1><small>CYBERSECURITY KNOWLEDGE EXPLORER</small></div></a>
@@ -6,20 +6,25 @@
     <div class="nav-actions"><a class="icon-btn" href="https://github.com/asifnawazminhas/cyberdict" target="_blank" rel="noopener">GH</a></div>
   </div>
 </header>
-<main><section class="page-hero"><div class="wrap"><div class="kicker">// DICTIONARY</div><h2>Explore CyberDict</h2><p>Browse the current curated term set. The project starts small on purpose so each entry can be structured, reviewed and connected to related concepts.</p><div class="searchbar"><input id="heroSearch" placeholder="Search terms, categories or definitions..."><button onclick="doSearch()">Search</button></div><div id="searchResults" class="results"></div></div></section>
+<main><section class="page-hero"><div class="wrap"><div class="kicker">// DICTIONARY</div><h2>Explore CyberDict</h2><p>Search, filter and jump through the complete CyberDict index. Browse alphabetically or narrow the dictionary by category and difficulty.</p><div class="searchbar"><input id="heroSearch" placeholder="Search terms, categories or definitions..."><button onclick="doSearch()">Search</button></div><div id="searchResults" class="results"></div></div></section>
 <section class="section"><div class="wrap">
 <div class="dictionary-toolbar">
 <div><div class="kicker">// FILTER INDEX</div><h3>All current terms</h3></div>
 <div class="dictionary-filters"><select id="categoryFilter"><option value="">All categories</option></select><select id="difficultyFilter"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select><button id="clearFilters" type="button">Reset</button></div>
 </div>
-<div class="dictionary-meta"><span id="dictionaryCount">0 terms</span><span>Search · filter · explore</span></div>
+<div class="az-nav" id="azNav" aria-label="Alphabetical term navigation"></div><div class="dictionary-meta"><span id="dictionaryCount">0 terms</span><span id="dictionaryState">All terms · A–Z</span></div>
 <div id="allTerms" class="terms-grid dictionary-grid"></div></div></section></main>
 <footer class="footer"><div class="wrap row"><div><b style="color:#cfe2d5">Cyber<span style="color:#00ff66">Dict</span></b> · Community cybersecurity knowledge explorer</div><div>OPEN KNOWLEDGE · PRACTICAL SECURITY · COMMUNITY DRIVEN</div></div></footer>
 
-<script src="/assets/js/app.js?v=1.9.0"></script><script>
+<script src="/assets/js/app.js?v=2.0.0"></script><script>
 (async()=>{await loadData();
-const box=document.getElementById('allTerms'), q=document.getElementById('heroSearch'), cat=document.getElementById('categoryFilter'), diff=document.getElementById('difficultyFilter'), count=document.getElementById('dictionaryCount');
+const box=document.getElementById('allTerms'),q=document.getElementById('heroSearch'),cat=document.getElementById('categoryFilter'),diff=document.getElementById('difficultyFilter'),count=document.getElementById('dictionaryCount'),state=document.getElementById('dictionaryState'),az=document.getElementById('azNav');
+let letter='';
 CATEGORIES.forEach(c=>cat.insertAdjacentHTML('beforeend',`<option value="${esc(c.id)}">${esc(c.name)}</option>`));
-function render(){const query=(q.value||'').toLowerCase().trim();const list=TERMS.filter(t=>(!query||[t.term,t.full,t.category,t.shortDefinition,...(t.tags||[])].join(' ').toLowerCase().includes(query))&&(!cat.value||t.categoryId===cat.value)&&(!diff.value||t.difficulty===diff.value)).sort((a,b)=>a.term.localeCompare(b.term));count.textContent=`${list.length} ${list.length===1?'term':'terms'}`;box.innerHTML=list.map(t=>`<a class="term-card dictionary-card" href="${termUrl(t)}"><div class="dictionary-card-top"><span>${esc(t.category)}</span><i class="${diffClass(t.difficulty)}">${esc(t.difficulty)}</i></div><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p><div class="dictionary-card-foot">EXPLORE TERM <b>→</b></div></a>`).join('')}
-[q,cat,diff].forEach(el=>el.addEventListener(el===q?'input':'change',render));document.getElementById('clearFilters').onclick=()=>{q.value='';cat.value='';diff.value='';render()};render();
+const letters=['ALL',...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+az.innerHTML=letters.map(x=>`<button type="button" data-letter="${x==='ALL'?'':x}" class="${x==='ALL'?'active':''}">${x}</button>`).join('');
+function render(){const query=(q.value||'').toLowerCase().trim();const list=TERMS.filter(t=>(!query||[t.term,t.full,t.category,t.shortDefinition,...(t.tags||[])].join(' ').toLowerCase().includes(query))&&(!cat.value||t.categoryId===cat.value)&&(!diff.value||t.difficulty===diff.value)&&(!letter||t.term.toUpperCase().startsWith(letter))).sort((a,b)=>a.term.localeCompare(b.term));count.textContent=`${list.length} ${list.length===1?'term':'terms'}`;const bits=[];if(letter)bits.push(letter);if(cat.value)bits.push(cat.options[cat.selectedIndex].text);if(diff.value)bits.push(diff.value);if(query)bits.push(`“${q.value.trim()}”`);state.textContent=bits.length?bits.join(' · '):'All terms · A–Z';box.innerHTML=list.length?list.map(t=>`<a class="term-card dictionary-card" href="${termUrl(t)}"><div class="dictionary-card-top"><span>${esc(t.category)}</span><i class="${diffClass(t.difficulty)}">${esc(t.difficulty)}</i></div><h4>${esc(t.term)}</h4><p>${esc(t.shortDefinition)}</p><div class="dictionary-card-foot"><span>EXPLORE TERM</span><b>→</b></div></a>`).join(''):`<div class="dictionary-empty"><b>No terms match these filters.</b><span>Reset the filters or choose another letter.</span></div>`}
+[q,cat,diff].forEach(el=>el.addEventListener(el===q?'input':'change',render));
+az.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;letter=b.dataset.letter;az.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render();});
+document.getElementById('clearFilters').onclick=()=>{q.value='';cat.value='';diff.value='';letter='';az.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===0));render()};render();
 })()</script></body></html>

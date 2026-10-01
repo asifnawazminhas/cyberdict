@@ -121,3 +121,12 @@ function initVisualLightbox(t){
   overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))close()});
 }
+
+
+function initGlobalUX(){
+  if(document.getElementById('backToTop'))return;
+  const b=document.createElement('button');b.id='backToTop';b.className='back-to-top';b.type='button';b.setAttribute('aria-label','Back to top');b.textContent='↑';document.body.appendChild(b);
+  const sync=()=>b.classList.toggle('show',window.scrollY>650);window.addEventListener('scroll',sync,{passive:true});sync();b.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelectorAll('img').forEach(img=>{img.addEventListener('error',()=>{img.closest('.essential-preview,.visual,.term-visual-open')?.classList.add('image-unavailable')},{once:true})});
+}
+document.addEventListener('DOMContentLoaded',initGlobalUX);
